@@ -4,7 +4,7 @@
 @include('layouts.head')
 @yield('styles')
 
-<body class="app header-fixed footer-fixed sidebar-fixed pace-done">
+<body class="app header-fixed footer-fixed sidebar-compact sidebar-fixed  pace-done">
   @include('layouts.header')
   <div class="app-body" id="app">
     @include('layouts.sidebar')
