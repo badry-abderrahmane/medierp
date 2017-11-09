@@ -18,3 +18,13 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('test');
 });
+
+Route::resource('charges', 'ChargeController');
+Route::resource('alimentations', 'AlimentationController');
+Route::resource('encaissements', 'EncaissementController');
+Route::resource('decaissements', 'DecaissementController');
+Route::resource('operations', 'OperationController');
+Route::resource('responsables', 'ResponsableController');
+Route::resource('societes', 'SocieteController');
+Route::resource('marches', 'MarcheController');
+Route::resource('typecharges', 'TypechargeController');

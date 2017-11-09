@@ -7,7 +7,7 @@
     </div><br>
     <div class="row">
         <div class="col-md-12">
-            <table class="table table-bordered table-hover" id="tableAdd">
+            <table class="table is-bordered" id="tableAdd">
                 <thead><slot name="thead"></slot></thead>
                 <tbody><slot name="tbody"></slot></tbody>
             </table>

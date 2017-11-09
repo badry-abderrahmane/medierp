@@ -1,52 +1,76 @@
-<header class="app-header navbar">
-    <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar is-primary">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
 
-    <ul class="nav navbar-nav d-md-down-none">
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">Tableau de bord</a>
-      </li>
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">Gestion caisses</a>
-      </li>
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">Opérations bancaires</a>
-      </li>
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">Gestion entités</a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav ml-auto">
-      <!-- Authentication Links -->
-      <li class="nav-item dropdown show">
-          <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
-              <span class="d-md-down-none">badry <span class="caret"></span></span>
+        <img src="https://bulma.io/images/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+
+    </a>
+    <div class="navbar-burger burger" data-target="navMenuColorprimary-example">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navMenuColorprimary-example" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="https://bulma.io/">
+        Home
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" href="/documentation/overview/start/">
+          Docs
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="/documentation/overview/start/">
+            Overview
           </a>
-          <div class="dropdown-menu dropdown-menu-right show">
-              <div class="dropdown-header text-xs-center">
-                  <strong>Paramètres</strong>
-              </div>
-              <a class="dropdown-item" href="/change-password"><i class="fa fa-user"></i> Mon compte</a>
-              <a class="dropdown-item" href="/parametres"><i class="fa fa-wrench"></i> Système</a>
-              <div class="divider"></div>
-              <a class="dropdown-item" href="https://www.medirelay.com/logout" onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-                  <i class="fa fa-power-off"></i>Se déconnecter
-              </a>
+          <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+            Modifiers
+          </a>
+          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+            Columns
+          </a>
+          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
+            Layout
+          </a>
+          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
+            Form
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
+            Elements
+          </a>
+          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
+            Components
+          </a>
+        </div>
+      </div>
+    </div>
 
-              <form id="logout-form" action="https://www.medirelay.com/logout" method="POST" style="display: none;">
-                  <input type="hidden" name="_token" value="khB6sjFyqgfFNqPuyqF9Vol40tG4apc6eUn9LK08">
-              </form>
-          </div>
-      </li>
-    </ul>
-    <button class="navbar-toggler aside-menu-toggler" type="button">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-  </header>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control">
+            <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms">
+              <span class="icon">
+                <i class="fa fa-twitter"></i>
+              </span>
+              <span>
+                Tweet
+              </span>
+            </a>
+          </p>
+          <p class="control">
+            <a class="button is-primary" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">
+              <span class="icon">
+                <i class="fa fa-download"></i>
+              </span>
+              <span>Download</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,14 +1,15 @@
 <template lang="html">
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4"><br><br>
-      <button type="submit"
-              v-bind:class="[editing ? 'btn-warning' : 'btn-success', 'btn btn-block']"
-              >{{ editing ? 'METTRE A JOUR' : 'AJOUTER' }}
-      </button>
-    </div>
+  <div class="column is-narrow">
+    <label class="label">&nbsp;</label>
+    <button type="submit"
+            v-bind:class="[editing ? '' : '', 'button is-primary']"
+            >
+            <span class="icon is-small">
+              <i v-bind:class="[editing ? 'fa-refresh' : 'fa-save', 'fa']"></i>
+            </span>&nbsp;&nbsp;&nbsp;
+            {{ editing ? 'Mettre à jour' : 'Enregistrer' }}&nbsp;&nbsp;&nbsp;
+    </button>
   </div>
-
 </template>
 
 <script>

@@ -4,16 +4,14 @@
 @include('layouts.head')
 @yield('styles')
 
-<body class="app header-fixed footer-fixed sidebar-compact sidebar-fixed  pace-done">
+<body class="page-layout site">
   @include('layouts.header')
-  <div class="app-body" id="app">
-    @include('layouts.sidebar')
+  <div id="app" class="site-content">
+    {{-- <div class="container is-fluid">
+      @include('layouts.sidebar')
+    </div> --}}
 
-    <main class="main">
-      <div class="container-fluid">
-        @yield('content')
-      </div>
-    </main>
+      @yield('content')
 
   </div>
 

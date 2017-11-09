@@ -14,7 +14,7 @@ Vue.use(VueRouter);
 require('./global');
 require('./parts');
 
-
+window.Event = new Vue();
 
 import { routes } from './router.js';
 const router = new VueRouter({ routes });

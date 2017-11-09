@@ -1,18 +1,21 @@
 <template lang="html">
-  <div class="row">
-    <div class="col-md-12"><br>
-      <center>
-        <h3 class="display-4 text-success">
-          <i :class="icon"></i>&nbsp;{{ title }}
-        </h3>
-      </center>
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          {{ title }}
+        </h1>
+        <h2 class="subtitle">
+          {{ subtitle }}
+        </h2>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
-  props:['title','icon']
+  props:['title','subtitle']
 }
 </script>
 

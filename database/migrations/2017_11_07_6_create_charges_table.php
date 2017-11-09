@@ -20,6 +20,7 @@ class CreateChargesTable extends Migration
           $table->string('montant');
           $table->integer('typecharge_id')->unsigned();
           $table->integer('marche_id')->unsigned();
+          $table->integer('societe_id')->unsigned();
           $table->integer('responsable_id')->unsigned();
           $table->timestamps();
 
@@ -29,6 +30,10 @@ class CreateChargesTable extends Migration
 
           $table->foreign('marche_id')
                   ->references('id')->on('marches')
+                      ->onDelete('cascade');
+
+          $table->foreign('societe_id')
+                  ->references('id')->on('societes')
                       ->onDelete('cascade');
 
           $table->foreign('responsable_id')

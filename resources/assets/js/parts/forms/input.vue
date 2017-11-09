@@ -1,11 +1,11 @@
 <template lang="html">
-  <div class="form-group col-md-4">
-    <label :for="name">{{ label }}</label>
+  <div class="column">
+    <label :for="name" class="label">{{ label }}</label>
     <input type="text" :id="name" :name="name"
-                        v-bind:class="[{'is-invalid': value.errors.get(name)} ,'form-control']"
+                        v-bind:class="[ value.errors.get(name) ? 'is-danger' : 'is-primary', 'input']"
                         v-model="value[name]" />
-    <span class="help-block">{{ help }}</span>
-    <div class="invalid-feedback" v-if="value.errors.has(name)" v-text="value.errors.get(name)"></div>
+    <span class="help">{{ help }}</span>
+    <div class="help is-danger" v-if="value.errors.has(name)" v-text="value.errors.get(name)"></div>
   </div>
 </template>
 

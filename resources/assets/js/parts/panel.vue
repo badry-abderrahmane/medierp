@@ -1,10 +1,19 @@
 <template lang="html">
-  <div v-bind:class="[editing ? 'card-accent-warning' : 'card-accent-success', 'card']">
-    <div class="card-header">
-      <slot name="heading"></slot>
-    </div>
-    <div class="card-body">
-      <slot name="body"></slot>
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title">
+        <slot name="heading"></slot>
+      </p>
+      <a href="#" class="card-header-icon" aria-label="more options">
+        <span class="icon">
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </span>
+      </a>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <slot name="body"></slot>
+      </div>
     </div>
   </div>
 </template>
