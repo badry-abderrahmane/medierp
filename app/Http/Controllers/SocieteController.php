@@ -85,8 +85,9 @@ class SocieteController extends Controller
      * @param  \App\Societe  $societe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Societe $societe)
+    public function destroy($id)
     {
-        //
+      Societe::destroy($id);
+      return Response::json(['message' => 'Société bien supprimé'], 200);
     }
 }
