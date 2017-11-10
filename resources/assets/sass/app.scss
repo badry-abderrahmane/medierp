@@ -17,3 +17,18 @@
 .site-content {
   flex: 1;
 }
+
+.pagination {
+    justify-content: flex-end !important;
+}
+
+.dataTables_scrollBody{
+  min-height: 200px !important;
+}
+
+.dt-button{
+  background-color: #00d1b2 !important;
+  border-color: #00d1b2 !important;
+  color: #00d1b2 !important;
+  padding: 0.1em 1em !important;
+}

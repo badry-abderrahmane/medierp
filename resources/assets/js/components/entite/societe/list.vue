@@ -50,6 +50,9 @@
           axios.get('/societes')
             .then(response => {
               this.societes = response.data;
+              Vue.nextTick(function () {
+                Event.$emit('init-datatable', 'tableAdd');
+              })
           });
         },
 
@@ -62,26 +65,27 @@
         },
 
         confirmDelete(societe){
-          Event.$emit('show-modal-delete', 'Êtes-vous sûr de vouloir supprimer la société ?',societe);
+          this.$router.push({ path: `societe/delete/${societe.id}` })
+          // Event.$emit('show-modal-delete', 'Êtes-vous sûr de vouloir supprimer la société ?',societe);
         },
 
         destroySociete(societe){
           axios.delete('/societes/' + societe.id)
               .then(response => {
                   //console.log(response.data);
-                  this.removeThis(id);
+                  this.$router.go({ path: '/entite/societe', force: true })
               })
               .catch(function(err){
                   console.error(err); // This will print any error that was thrown in the previous error handler.
               });
         },
 
-        removeThis(id){
-          var index = this.societes.findIndex(function(o){
-               return o.id === id;
-          })
-          if (index !== -1) this.societes.splice(index, 1)
-        }
+        // removeThis(id){
+        //   var index = this.societes.findIndex(function(o){
+        //        return o.id === id;
+        //   })
+        //   if (index !== -1) this.societes.splice(index, 1)
+        // }
       }
     }
 

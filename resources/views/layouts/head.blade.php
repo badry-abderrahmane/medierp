@@ -10,6 +10,10 @@
   <link rel="shortcut icon" href="img/favicon.png">
   <title>CoreUI - Open Source Bootstrap Admin Template</title>
 
+  <link href="css/material.min.css" rel="stylesheet">
+  <link href="css/dataTables.material.min.css" rel="stylesheet">
+  <link href="css/toastr.min.css" rel="stylesheet">
+  <link href="css/buttons.dataTables.min.css" rel="stylesheet">
   <link href="css/app.css" rel="stylesheet">
 
   <!-- Icons -->

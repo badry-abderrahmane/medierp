@@ -72,7 +72,8 @@ module.exports = {
         children: [
           { path: '', component: require('./components/entite/societe/list.vue') },
           { path: 'add', component: require('./components/entite/societe/form.vue') },
-          { path: 'edit/:id', component: require('./components/entite/societe/form.vue') }
+          { path: 'edit/:id', component: require('./components/entite/societe/form.vue') },
+          { path: 'delete/:id', component: require('./components/entite/societe/delete.vue') }
         ]
       },
       { path: '/entite/marche', component: require('./components/entite/marche/home.vue'),

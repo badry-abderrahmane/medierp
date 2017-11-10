@@ -17,5 +17,10 @@
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
         "vue": "^2.1.10"
+    },
+    "dependencies": {
+        "bulma": "^0.6.1",
+        "vue-events": "^3.1.0",
+        "vue-router": "^3.0.1"
     }
 }

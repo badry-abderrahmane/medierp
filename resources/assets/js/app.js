@@ -13,9 +13,145 @@ Vue.use(VueRouter);
 
 require('./global');
 require('./parts');
+require('./plugins');
 
 window.Event = new Vue();
 
 import { routes } from './router.js';
 const router = new VueRouter({ routes });
-const app = new Vue({router}).$mount('#app');
+
+const app = new Vue({
+  router,
+  created(){
+      Event.$on('publish-success-message', (message) => {
+        this.toastrSuccess(message);
+      });
+      Event.$on('publish-error-message', (message) => {
+        this.toastrError(message);
+      });
+      Event.$on('publish-warning-message', (message) => {
+        this.toastrWarning(message);
+      });
+      Event.$on('init-datatable', (tableid) => {
+        this.datatableThis(tableid);
+      });
+    },
+    mounted(){
+      this.$nextTick(function () {
+        // entire view has been rendered
+        this.loadTooltips();
+      })
+
+    },
+    methods:{
+        /**
+        * Tooltips Functions
+        *
+        **/
+        loadTooltips(){
+          $('[data-toggle="m-tooltip"]').each(function() {
+              var el = $(this);
+              console.log(el);
+              var skin = el.data('skin') ? 'm-tooltip--skin-' + el.data('skin') : '';
+              el.tooltip({
+                  template: '<div class="m-tooltip ' + skin + ' tooltip" role="tooltip">\
+                      <div class="arrow"></div>\
+                      <div class="tooltip-inner"></div>\
+                  </div>'
+              });
+          });
+        },
+        /**
+        * DataTables Functions
+        *
+        **/
+        datatableThis(tableid){
+          $('#'+tableid).DataTable({
+            "bDestroy": true,
+            dom: 'Bfrtip',
+            buttons: [
+               'excel', 'pdf',
+               { extend: 'pageLength', text:'Nombre de lignes'},
+               { extend: 'print', text:'<i class="fa fa-print"></i>'}
+            ],
+            "language": {
+                  "lengthMenu": "Afficher _MENU_ lignes par page",
+                  "sSearch":         "Recherche&nbsp;:",
+                  "zeroRecords": "Aucun enregistrement pour le moment. ",
+                  "info": "Page _PAGE_ de _PAGES_",
+                  "infoEmpty": "Pas d'enregistrement.",
+                  "infoFiltered": "( _MAX_ enregistrements filtrés)",
+                  "oPaginate": {
+                      "sFirst":      "Premier",
+                      "sPrevious":   "Pr&eacute;c&eacute;dent",
+                      "sNext":       "Suivant",
+                      "sLast":       "Dernier"
+                  },
+              }
+          });
+          //this.loadTooltips();
+        },
+
+        /**
+        * Tostr Functions
+        *
+        **/
+        toastrSuccess(message){
+          toastr.options = {
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          };
+          toastr.success(message);
+        },
+        toastrError(message){
+          toastr.options = {
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          };
+          toastr.error(message);
+        },
+        toastrWarning(message){
+          toastr.options = {
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          };
+          toastr.warning(message);
+        },
+    }
+}).$mount('#app');
