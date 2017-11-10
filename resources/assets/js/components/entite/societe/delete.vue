@@ -14,8 +14,8 @@
           </ul>
           <div class="columns ">
             <div class="column is-offset-one-third"><br>
-              <button type="button" class="button is-danger is-outlined" name="button">Supprimer</button>
-              <button type="button" class="button is-danger is-outlined" name="button">Annuler</button>
+              <button type="button" class="button is-danger is-outlined" name="button" @click="deleteSociete">Supprimer</button>
+              <button type="button" class="button is-danger is-outlined" name="button" @click="cancel">Annuler</button>
             </div>
           </div>
         </div>
@@ -28,6 +28,36 @@
 
 <script>
 export default {
+  data(){
+    return{
+      societe:'',
+    }
+  },
+  created(){
+    this.getSociete(this.$route.params.id);
+  },
+
+  methods: {
+    getSociete(id){
+      axios.get('/societes/'+id)
+        .then(response => {
+          this.societe = response.data;
+      });
+    },
+    deleteSociete(){
+      axios.delete('/societes/'+this.$route.params.id)
+          .then(response => {
+            this.$router.push({ path: `societe` })
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+    },
+
+    cancel(){
+      this.$router.go(-1);
+    }
+  }
 }
 </script>
 

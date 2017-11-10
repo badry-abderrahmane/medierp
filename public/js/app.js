@@ -49894,7 +49894,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49934,7 +49934,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      societe: ''
+    };
+  },
+  created: function created() {
+    this.getSociete(this.$route.params.id);
+  },
+
+
+  methods: {
+    getSociete: function getSociete(id) {
+      var _this = this;
+
+      axios.get('/societes/' + id).then(function (response) {
+        _this.societe = response.data;
+      });
+    },
+    deleteSociete: function deleteSociete() {
+      var _this2 = this;
+
+      axios.delete('/societes/' + this.$route.params.id).then(function (response) {
+        _this2.$router.push({ path: 'societe' });
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    cancel: function cancel() {
+      this.$router.go(-1);
+    }
+  }
+});
 
 /***/ }),
 /* 369 */
@@ -49944,70 +49976,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "columns" }, [
+    _c("div", { staticClass: "column is-three-fifths is-offset-one-fifth" }, [
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("article", { staticClass: "message is-danger is-medium" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "message-body" }, [
+          _vm._v(
+            "\n        La suppression de cette société entrainera la suppression de:"
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "columns " }, [
+            _c("div", { staticClass: "column is-offset-one-third" }, [
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "button is-danger is-outlined",
+                  attrs: { type: "button", name: "button" },
+                  on: { click: _vm.deleteSociete }
+                },
+                [_vm._v("Supprimer")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "button is-danger is-outlined",
+                  attrs: { type: "button", name: "button" },
+                  on: { click: _vm.cancel }
+                },
+                [_vm._v("Annuler")]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "columns" }, [
-      _c("div", { staticClass: "column is-three-fifths is-offset-one-fifth" }, [
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c("article", { staticClass: "message is-danger is-medium" }, [
-          _c("div", { staticClass: "message-header" }, [
-            _c("p", [_vm._v("Confirmation de suppression")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "message-body" }, [
-            _vm._v(
-              "\n        La suppression de cette société entrainera la suppression de:"
-            ),
-            _c("br"),
-            _c("br"),
-            _vm._v(" "),
-            _c("ul", [
-              _c("li", [
-                _c("span", { staticClass: "tag is-danger" }, [_vm._v("10")]),
-                _vm._v("  "),
-                _c("strong", [_vm._v("Marché(s)")])
-              ]),
-              _c("br"),
-              _vm._v(" "),
-              _c("li", [
-                _c("span", { staticClass: "tag is-danger" }, [_vm._v("13")]),
-                _vm._v("  "),
-                _c("strong", [_vm._v(" Charge(s)")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "columns " }, [
-              _c("div", { staticClass: "column is-offset-one-third" }, [
-                _c("br"),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button is-danger is-outlined",
-                    attrs: { type: "button", name: "button" }
-                  },
-                  [_vm._v("Supprimer")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button is-danger is-outlined",
-                    attrs: { type: "button", name: "button" }
-                  },
-                  [_vm._v("Annuler")]
-                )
-              ])
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "message-header" }, [
+      _c("p", [_vm._v("Confirmation de suppression")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", [
+      _c("li", [
+        _c("span", { staticClass: "tag is-danger" }, [_vm._v("10")]),
+        _vm._v("  "),
+        _c("strong", [_vm._v("Marché(s)")])
+      ]),
+      _c("br"),
+      _vm._v(" "),
+      _c("li", [
+        _c("span", { staticClass: "tag is-danger" }, [_vm._v("13")]),
+        _vm._v("  "),
+        _c("strong", [_vm._v(" Charge(s)")])
       ])
     ])
   }
