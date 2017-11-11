@@ -28,3 +28,13 @@ Route::resource('responsables', 'ResponsableController');
 Route::resource('societes', 'SocieteController');
 Route::resource('marches', 'MarcheController');
 Route::resource('typecharges', 'TypechargeController');
+
+
+/**
+** Get Totals
+**
+**/
+Route::get('totale/societes', function(){
+  $total = \App\Societe::count();
+  return $total;
+});

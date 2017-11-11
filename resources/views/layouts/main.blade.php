@@ -4,9 +4,10 @@
 @include('layouts.head')
 @yield('styles')
 
-<body class="page-layout site">
-  @include('layouts.header')
+<body class="site">
+
   <div id="app" class="site-content">
+    @include('layouts.header')
     {{-- <div class="container is-fluid">
       @include('layouts.sidebar')
     </div> --}}

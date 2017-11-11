@@ -17,3 +17,6 @@ Vue.component('part-forms-select-grouped', require('./parts/forms/selectGrouped.
 Vue.component('part-forms-file', require('./parts/forms/file.vue'));
 
 Vue.component('part-lists-table-add', require('./parts/lists/tableAdd.vue'));
+
+
+Vue.component('part-tile', require('./parts/tile.vue'));

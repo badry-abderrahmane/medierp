@@ -22,6 +22,11 @@ const router = new VueRouter({ routes });
 
 const app = new Vue({
   router,
+  data(){
+    return {
+      color:'primary'
+    }
+  },
   created(){
       Event.$on('publish-success-message', (message) => {
         this.toastrSuccess(message);

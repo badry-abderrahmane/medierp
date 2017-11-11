@@ -10,11 +10,12 @@
               <center>
                 <a class="button is-text" @click="$router.push({ path: `/entite/societe/add` })"><i class="fa fa-plus"></i>&nbsp;&nbsp;Ajouter société</a>
                 <a class="button is-text" @click="$router.push({ path: `/entite/societe` })"><i class="fa fa-list"></i>&nbsp;&nbsp;Liste des sociétés</a>
+                <a class="button is-text" @click="$router.push({ path: `/entite/` })"><i class="fa fa-building"></i>&nbsp;&nbsp;Entités manager</a>
               </center>
               <hr>
               <center>
                 <p class="title is-6">Nombre totale des sociétés :</p>
-                <span class="tag is-primary is-medium">10</span>
+                <span class="tag is-primary is-medium">{{ totalSociete }}</span>
               </center>
             </div>
           </part-panel>
@@ -29,7 +30,17 @@
 
 <script>
 export default {
-
+  data(){
+    return{
+      totalSociete:'',
+    }
+  },
+  created(){
+    axios.get('/totale/societes')
+      .then(response => {
+        this.totalSociete = response.data;
+    });
+  }
 }
 </script>
 
