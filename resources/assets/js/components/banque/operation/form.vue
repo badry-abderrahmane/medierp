@@ -5,12 +5,12 @@
         <div slot="heading">Formulaire de type d'opération</div>
         <div slot="body">
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
-            <div class="columns">
+            <div class="columns is-centered">
                 <part-forms-input v-model="form" name="name" label="Nom d'opération" help="Taper un nom"></part-forms-input>
             </div>
             <div class="columns is-centered">
               <part-forms-button :editing="editing" ></part-forms-button>
-              <part-forms-button-reset :editing="editing" ></part-forms-button-reset>
+              <part-forms-button-reset></part-forms-button-reset>
             </div>
           </form>
         </div>

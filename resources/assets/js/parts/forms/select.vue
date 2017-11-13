@@ -1,13 +1,18 @@
 <template lang="html">
-  <div class="form-group col-md-4">
-      <label>{{ label }}</label>
-      <select class="form-control" :name="name"
-                                  v-bind:class="[{'is-invalid': value.errors.get(name)} ,'form-control']"
-                                  v-model="value[name]" @change="value.errors.clear(name)">
-            <option v-for="item in list" v-bind:value="item.id"> {{ item.name }}</option>
-      </select>
-      <span class="help-block">{{ help }}</span>
-      <div class="invalid-feedback" v-if="value.errors.has(name)" v-text="value.errors.get(name)"></div>
+  <div class="column is-3">
+    <label :for="name" class="label">{{ label }}</label>
+    <div class="field">
+      <div class="control">
+        <div v-bind:class="[ value.errors.get(name) ? 'is-danger' : 'is-primary', 'select']">
+          <select :name="name" style="min-width:220px;"
+                                      v-model="value[name]" @change="value.errors.clear(name)">
+                <option v-for="item in list" v-bind:value="item.id"> {{ item.name }}</option>
+          </select>
+        </div>
+      </div>
+      <span class="help">{{ help }}</span>
+      <div class="help is-danger" v-if="value.errors.has(name)" v-text="value.errors.get(name)"></div>
+    </div>
   </div>
 </template>
 

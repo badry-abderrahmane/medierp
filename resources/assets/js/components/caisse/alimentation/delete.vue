@@ -7,7 +7,7 @@
           <!-- <button class="delete" aria-label="delete"></button> -->
         </div>
         <div class="message-body">
-          Etes vous sur de vouloir supprimer cette alimentation<br><br>
+          Etes vous sur de vouloir supprimer cette alimentation?<br><br>
           <div class="columns ">
             <div class="column is-offset-one-third"><br>
               <button type="button" class="button is-danger is-outlined" name="button" @click="deleteAlimentation">Supprimer</button>

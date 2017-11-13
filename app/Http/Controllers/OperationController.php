@@ -16,7 +16,7 @@ class OperationController extends Controller
      */
     public function index()
     {
-        $operations = Opertaion::all();
+        $operations = Operation::all();
         return $operations->toJson();
     }
 

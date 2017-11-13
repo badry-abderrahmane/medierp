@@ -10,7 +10,7 @@
           La suppression de ce marché entrainera la suppression de:<br><br>
           <ul>
             <li><span class="tag is-danger">10</span>&nbsp;&nbsp;<strong>Charge(s)</strong></li><br>
-            <li><span class="tag is-danger">13</span>&nbsp;&nbsp;<strong>Encaissement(s)</strong></li>
+            <li><span class="tag is-danger">13</span>&nbsp;&nbsp;<strong>Encaissement(s)</strong></li><br>
             <li><span class="tag is-danger">13</span>&nbsp;&nbsp;<strong>Decaissement(s)</strong></li>
           </ul>
           <div class="columns ">

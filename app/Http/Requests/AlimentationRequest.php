@@ -26,7 +26,7 @@ class AlimentationRequest extends FormRequest
         return [
             'date'=>'required',
             'designation'=>'required',
-            'responsable'=>'required',
+            'responsable_id'=>'required',
             'montant'=>'required',
         ];
     }

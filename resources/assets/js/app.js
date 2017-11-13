@@ -24,10 +24,25 @@ const app = new Vue({
   router,
   data(){
     return {
-      color:'primary'
+      color:'primary',
+
+      /** Shared objects **/
+      responsables:'',
+      societes:'',
+      marches:'',
+      typecharges:'',
+      operations:'',
     }
   },
   created(){
+      /** Init Functions Shared objects **/
+      this.getResposables();
+      this.getSocietes();
+      this.getMarches();
+      this.getTypecharges();
+      this.getOperations();
+
+
       Event.$on('publish-success-message', (message) => {
         this.toastrSuccess(message);
       });
@@ -49,6 +64,38 @@ const app = new Vue({
 
     },
     methods:{
+        /** Function get shared objects **/
+        getResposables(){
+          axios.get('/responsables')
+            .then(response => {
+              this.responsables = response.data;
+          });
+        },
+        getSocietes(){
+          axios.get('/societes')
+            .then(response => {
+              this.societes = response.data;
+          });
+        },
+        getMarches(){
+          axios.get('/marches')
+            .then(response => {
+              this.marches = response.data;
+          });
+        },
+        getTypecharges(){
+          axios.get('/typecharges')
+            .then(response => {
+              this.typecharges = response.data;
+          });
+        },
+        getOperations(){
+          axios.get('/operations')
+            .then(response => {
+              this.operations = response.data;
+          });
+        },
+
         /**
         * Tooltips Functions
         *

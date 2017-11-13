@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="column">
+  <div class="column is-3">
     <label :for="name" class="label">{{ label }}</label>
     <input type="text" :id="name" :name="name"
                         v-bind:class="[ value.errors.get(name) ? 'is-danger' : 'is-primary', 'input']"

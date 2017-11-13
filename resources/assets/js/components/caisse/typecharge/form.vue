@@ -5,7 +5,7 @@
         <div slot="heading">Formulaire de type charge</div>
         <div slot="body">
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
-            <div class="columns">
+            <div class="columns is-centered">
                 <part-forms-input v-model="form" name="name" label="Nom" help="Donner un nom"></part-forms-input>
             </div>
             <div class="columns is-centered">

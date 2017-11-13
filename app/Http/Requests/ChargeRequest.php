@@ -26,9 +26,9 @@ class ChargeRequest extends FormRequest
         return [
           'date' => 'required',
           'designation' => 'required',
-          'responsable' => 'required',
+          'responsable_id' => 'required',
           'montant' => 'required',
-          'type' => 'required',
+          'typecharge_id' => 'required',
           'marche_id' => 'required',
         ];
     }

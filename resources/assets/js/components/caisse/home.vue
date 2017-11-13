@@ -28,7 +28,7 @@
               <div class="column is-narrow">
                 <center>
                   <span class="icon is-large">
-                    <i class="fa fa-3x fa-shopping-basket"></i>
+                    <i class="fa fa-3x fa-list-alt"></i>
                   </span>
                 </center><br>
                 <p class="title is-4">Gestion des charges</p>

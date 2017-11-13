@@ -5,16 +5,16 @@
         <div slot="heading">Formulaire d'encaissement</div>
         <div slot="body">
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
-            <div class="columns">
+            <div class="columns is-multiline">
                 <part-forms-input v-model="form" name="designation" label="Désignation" help="Taper une désignation"></part-forms-input>
                 <part-forms-input v-model="form" name="date" label="Date" help="Spécifier une date"></part-forms-input>
                 <part-forms-input v-model="form" name="montant" label="Montant" help="Spécifier un montant"></part-forms-input>
                 <part-forms-input v-model="form" name="description" label="Description" help="Donner une description"></part-forms-input>
-                <part-forms-input v-model="form" name="marche_id" label="Marché" help="Séléctionner le marché correspondant"></part-forms-input>
+                <part-forms-select v-model="form" :list="$root.marches" name="marche_id" label="Marché" help="Séléctionner le marché correspondant"></part-forms-select>
             </div>
             <div class="columns is-centered">
               <part-forms-button :editing="editing" ></part-forms-button>
-              <part-forms-button-reset :editing="editing" ></part-forms-button-reset>
+              <part-forms-button-reset></part-forms-button-reset>
             </div>
           </form>
         </div>

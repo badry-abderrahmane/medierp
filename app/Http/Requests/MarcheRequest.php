@@ -24,11 +24,11 @@ class MarcheRequest extends FormRequest
     public function rules()
     {
         return [
-          'numeroMarche' => 'required',
-          'nom' => 'required',
+          'numero' => 'required',
+          'name' => 'required',
           'delais' => 'required',
           'dateDebut' => 'required',
-          'montantTotale' => 'required',
+          'montant' => 'required',
           'societe_id' => 'required',
         ];
     }

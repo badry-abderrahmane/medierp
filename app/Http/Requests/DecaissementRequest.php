@@ -24,11 +24,11 @@ class DecaissementRequest extends FormRequest
     public function rules()
     {
         return [
-          'date' => 'required',
-          'type' => 'required',
-          'ref' => 'required',
-          'montant' => 'required',
           'designation' => 'required',
+          'date' => 'required',
+          'operation_id' => 'required',
+          'code' => 'required',
+          'montant' => 'required',
           'marche_id' => 'required',
         ];
     }

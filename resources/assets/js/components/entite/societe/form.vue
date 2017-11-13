@@ -5,7 +5,7 @@
         <div slot="heading">Formulaire de société</div>
         <div slot="body">
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
-            <div class="columns">
+            <div class="columns is-centered">
                 <part-forms-input v-model="form" name="name" label="Nom" help="Taper le nom de la société"></part-forms-input>
                 <part-forms-input v-model="form" name="solde" label="Solde depart" help="Spécifier un solde depart"></part-forms-input>
             </div>

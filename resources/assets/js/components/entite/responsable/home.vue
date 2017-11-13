@@ -8,8 +8,8 @@
             <div slot="heading">Infos et liens</div>
             <div slot="body">
               <center>
-                <a class="button is-text" @click="$router.push({ path: `/entite/responsable/add` })"><i class="fa fa-plus"></i>&nbsp;&nbsp;Ajouter type responsable</a>
-                <a class="button is-text" @click="$router.push({ path: `/entite/responsable` })"><i class="fa fa-list"></i>&nbsp;&nbsp;Liste des type responsables</a>
+                <a class="button is-text" @click="$router.push({ path: `/entite/responsable/add` })"><i class="fa fa-plus"></i>&nbsp;&nbsp;Ajouter responsable</a>
+                <a class="button is-text" @click="$router.push({ path: `/entite/responsable` })"><i class="fa fa-list"></i>&nbsp;&nbsp;Liste des responsables</a>
                 <a class="button is-text" @click="$router.push({ path: `/entite/` })"><i class="fa fa-building"></i>&nbsp;&nbsp;Entités manager</a>
               </center>
               <hr>

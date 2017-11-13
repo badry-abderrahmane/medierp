@@ -5,14 +5,14 @@
         <div slot="heading">Formulaire de charge</div>
         <div slot="body">
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
-            <div class="columns">
+            <div class="columns is-multiline">
                 <part-forms-input v-model="form" name="designation" label="Désignation" help="Taper une désignation"></part-forms-input>
                 <part-forms-input v-model="form" name="date" label="Date" help="Spécifier une date"></part-forms-input>
                 <part-forms-input v-model="form" name="montant" label="Montant" help="Spécifier un montant"></part-forms-input>
-                <part-forms-input v-model="form" name="typecharge_id" label="Type charge" help="Séléctionner le type de charge correspondant"></part-forms-input>
-                <part-forms-input v-model="form" name="marche_id" label="Marché" help="Séléctionner le marché correspondant"></part-forms-input>
-                <part-forms-input v-model="form" name="responsable_id" label="Responsable" help="Séléctionner le responsable correspondant"></part-forms-input>
-                <part-forms-input v-model="form" name="societe_id" label="Société" help="Séléctionner la société correspondante"></part-forms-input>
+                <part-forms-select v-model="form" :list="$root.typecharges" name="typecharge_id" label="Type charge" help="Séléctionner le type de charge correspondant"></part-forms-select>
+                <part-forms-select v-model="form" :list="$root.marches" name="marche_id" label="Marché" help="Séléctionner le marché correspondant"></part-forms-select>
+                <part-forms-select v-model="form" :list="$root.responsables" name="responsable_id" label="Responsable" help="Séléctionner le responsable correspondant"></part-forms-select>
+                <!-- <part-forms-select v-model="form" :list="$root.societes" name="societe_id" label="Société" help="Séléctionner la société corresspondante"></part-forms-select> -->
             </div>
             <div class="columns is-centered">
               <part-forms-button :editing="editing" ></part-forms-button>

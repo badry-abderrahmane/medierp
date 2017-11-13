@@ -5,13 +5,13 @@
         <div slot="heading">Formulaire de marhé</div>
         <div slot="body">
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
-            <div class="columns">
+            <div class="columns is-multiline">
                 <part-forms-input v-model="form" name="name" label="Nom" help="Spécifier un nom du marché"></part-forms-input>
                 <part-forms-input v-model="form" name="dateDebut" label="Date début" help="Spécifier une date de début"></part-forms-input>
                 <part-forms-input v-model="form" name="delais" label="Délais" help="Spécifier un délais"></part-forms-input>
                 <part-forms-input v-model="form" name="numero" label="Numéro" help="Spécifier un numéro unique"></part-forms-input>
                 <part-forms-input v-model="form" name="montant" label="Montant total" help="Spécifier un montant total"></part-forms-input>
-                <part-forms-input v-model="form" name="societe_id" label="Société" help="Séléctionner la société corresspondante"></part-forms-input>
+                <part-forms-select v-model="form" :list="$root.societes" name="societe_id" label="Société" help="Séléctionner la société corresspondante"></part-forms-select>
             </div>
             <div class="columns is-centered">
               <part-forms-button :editing="editing" ></part-forms-button>
