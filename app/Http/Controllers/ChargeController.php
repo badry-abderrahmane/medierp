@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Charge;
 use Illuminate\Http\Request;
-use App\Requests\ChargeRequest;
+use App\Http\Requests\ChargeRequest;
+use Illuminate\Support\Facades\Response;
 
 class ChargeController extends Controller
 {
@@ -37,7 +38,8 @@ class ChargeController extends Controller
      */
     public function store(ChargeRequest $request)
     {
-        //
+        $charge = Charge::create($request->toArray());
+        return Response::json(['message' => 'Charge bien ajouté'], 200);
     }
 
     /**
@@ -48,7 +50,8 @@ class ChargeController extends Controller
      */
     public function show(Charge $charge)
     {
-        //
+        $charge = Charge::findOrfail($charge)->first();
+        return Response::json($charge, 200);
     }
 
     /**
@@ -69,9 +72,11 @@ class ChargeController extends Controller
      * @param  \App\Charge  $charge
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Charge $charge)
+    public function update(ChargeRequest $request, Charge $charge)
     {
-        //
+        $charge = Charge::findOrfail($charge)->first();
+        $charge->update($request->toArray());
+        return Response::json(['message' => 'Charge bien mise à jour'], 200);
     }
 
     /**
@@ -80,8 +85,9 @@ class ChargeController extends Controller
      * @param  \App\Charge  $charge
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Charge $charge)
+    public function destroy($id)
     {
-        //
+        Charge::destroy($id);
+        return Response::json(['message' => 'Charge bien supprimé'], 200);
     }
 }

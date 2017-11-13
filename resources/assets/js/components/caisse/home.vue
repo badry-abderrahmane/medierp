@@ -10,7 +10,7 @@
               <div class="column is-narrow">
                 <center>
                   <span class="icon is-large">
-                    <i class="fa fa-3x fa-building"></i>
+                    <i class="fa fa-3x fa-hdd-o"></i>
                   </span>
                 </center><br>
                 <p class="title is-4">Gestion des alimentations</p>
@@ -28,7 +28,7 @@
               <div class="column is-narrow">
                 <center>
                   <span class="icon is-large">
-                    <i class="fa fa-3x fa-suitcase"></i>
+                    <i class="fa fa-3x fa-shopping-basket"></i>
                   </span>
                 </center><br>
                 <p class="title is-4">Gestion des charges</p>
@@ -46,7 +46,7 @@
               <div class="column is-narrow">
                 <center>
                   <span class="icon is-large">
-                    <i class="fa fa-3x fa-users"></i>
+                    <i class="fa fa-3x fa-dot-circle-o"></i>
                   </span>
                 </center><br>
                 <p class="title is-4">Gestion des types de charges</p>
@@ -64,9 +64,6 @@
 
 <script>
 export default {
-  mounted(){
-    this.$parent.color = 'primary';
-  }
 }
 </script>
 

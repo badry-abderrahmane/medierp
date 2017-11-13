@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Responsable;
 use Illuminate\Http\Request;
+use App\Http\Requests\ResponsableRequest;
+use Illuminate\Support\Facades\Response;
 
 class ResponsableController extends Controller
 {
@@ -34,9 +36,10 @@ class ResponsableController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ResponsableRequest $request)
     {
-        //
+        $responsable = Responsable::create($request->toArray());
+        return Response::json(['message' => 'Responsable bien ajouté'], 200);
     }
 
     /**
@@ -47,7 +50,8 @@ class ResponsableController extends Controller
      */
     public function show(Responsable $responsable)
     {
-        //
+        $responsable = Responsable::findOrfail($responsable)->first();
+        return Response::json($responsable, 200);
     }
 
     /**
@@ -68,9 +72,11 @@ class ResponsableController extends Controller
      * @param  \App\Responsable  $responsable
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Responsable $responsable)
+    public function update(ResponsableRequest $request, Responsable $responsable)
     {
-        //
+        $responsable = Responsable::findOrfail($responsable)->first();
+        $responsable->update($request->toArray());
+        return Response::json(['message' => 'Responsable bien mis à jour'], 200);
     }
 
     /**
@@ -79,8 +85,9 @@ class ResponsableController extends Controller
      * @param  \App\Responsable  $responsable
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Responsable $responsable)
+    public function destroy($id)
     {
-        //
+        Responsable::destroy($id);
+        return Response::json(['message' => 'Responsable bien supprimé'], 200);
     }
 }

@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <global-pagetitle color="info" title="Banque Manager" subtitle="Encaissements, Décaissements et opérations." icon="bank"></global-pagetitle>
+    <global-pagetitle color="primary" title="Banque Manager" subtitle="Encaissements, Décaissements et opérations." icon="bank"></global-pagetitle>
     <br><br>
     <div class="columns is-centered">
       <div class="column is-narrow">
@@ -10,7 +10,7 @@
               <div class="column is-narrow">
                 <center>
                   <span class="icon is-large">
-                    <i class="fa fa-3x fa-building"></i>
+                    <i class="fa fa-3x fa-caret-square-o-up"></i>
                   </span>
                 </center><br>
                 <p class="title is-4">Gestion des encaissemnts</p>
@@ -28,7 +28,7 @@
               <div class="column is-narrow">
                 <center>
                   <span class="icon is-large">
-                    <i class="fa fa-3x fa-suitcase"></i>
+                    <i class="fa fa-3x fa-caret-square-o-down"></i>
                   </span>
                 </center><br>
                 <p class="title is-4">Gestion des décaissments</p>
@@ -46,7 +46,7 @@
               <div class="column is-narrow">
                 <center>
                   <span class="icon is-large">
-                    <i class="fa fa-3x fa-users"></i>
+                    <i class="fa fa-3x fa-credit-card"></i>
                   </span>
                 </center><br>
                 <p class="title is-4">Gestion des opérations</p>
@@ -64,9 +64,7 @@
 
 <script>
 export default {
-  created(){
-    this.$parent.color = 'info';
-  }
+
 }
 </script>
 

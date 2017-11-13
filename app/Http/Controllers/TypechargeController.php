@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Typecharge;
 use Illuminate\Http\Request;
+use App\Http\Requests\TypechargeRequest;
+use Illuminate\Support\Facades\Response;
 
 class TypechargeController extends Controller
 {
@@ -34,9 +36,10 @@ class TypechargeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TypechargeRequest $request)
     {
-        //
+        $typecharge = Typecharge::create($request->toArray());
+        return Response::json(['message' => 'Typecharge bien ajouté'], 200);
     }
 
     /**
@@ -47,7 +50,8 @@ class TypechargeController extends Controller
      */
     public function show(Typecharge $typecharge)
     {
-        //
+        $typecharge = Typecharge::findOrfail($typecharge)->first();
+        return Response::json($typecharge, 200);
     }
 
     /**
@@ -68,9 +72,11 @@ class TypechargeController extends Controller
      * @param  \App\Typecharge  $typecharge
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Typecharge $typecharge)
+    public function update(TypechargeRequest $request, Typecharge $typecharge)
     {
-        //
+        $typecharge = Typecharge::findOrfail($typecharge)->first();
+        $typecharge->update($request->toArray());
+        return Response::json(['message' => 'Type charge bien mis à jour'], 200);
     }
 
     /**
@@ -79,8 +85,9 @@ class TypechargeController extends Controller
      * @param  \App\Typecharge  $typecharge
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Typecharge $typecharge)
+    public function destroy($id)
     {
-        //
+        Typecharge::destroy($id);
+        return Response::json(['message' => 'Type charge bien supprimé'], 200);
     }
 }

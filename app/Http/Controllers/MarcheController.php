@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Marche;
 use Illuminate\Http\Request;
+use App\Http\Requests\MarcheRequest;
+use Illuminate\Support\Facades\Response;
 
 class MarcheController extends Controller
 {
@@ -34,9 +36,10 @@ class MarcheController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MarcheRequest $request)
     {
-        //
+        $marche = Marche::create($request->toArray());
+        return Response::json(['message' => 'Marche bien ajouté'], 200);
     }
 
     /**
@@ -47,7 +50,8 @@ class MarcheController extends Controller
      */
     public function show(Marche $marche)
     {
-        //
+        $marche = Marche::findOrfail($marche)->first();
+        return Response::json($marche, 200);
     }
 
     /**
@@ -68,9 +72,11 @@ class MarcheController extends Controller
      * @param  \App\Marche  $marche
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marche $marche)
+    public function update(MarcheRequest $request, Marche $marche)
     {
-        //
+        $marche = Marche::findOrfail($marche)->first();
+        $marche->update($request->toArray());
+        return Response::json(['message' => 'Marche bien mis à jour'], 200);
     }
 
     /**
@@ -79,8 +85,9 @@ class MarcheController extends Controller
      * @param  \App\Marche  $marche
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Marche $marche)
+    public function destroy($id)
     {
-        //
+        Marche::destroy($id);
+        return Response::json(['message' => 'Marche bien supprimé'], 200);
     }
 }

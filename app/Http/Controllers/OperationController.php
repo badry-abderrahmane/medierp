@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Operation;
 use Illuminate\Http\Request;
+use App\Http\Requests\OperationRequest;
+use Illuminate\Support\Facades\Response;
 
 class OperationController extends Controller
 {
@@ -34,9 +36,10 @@ class OperationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OperationRequest $request)
     {
-        //
+        $operation = Operation::create($request->toArray());
+        return Response::json(['message' => 'Operation bien ajoutée'], 200);
     }
 
     /**
@@ -47,7 +50,8 @@ class OperationController extends Controller
      */
     public function show(Operation $operation)
     {
-        //
+        $operation = Operation::findOrfail($operation)->first();
+        return Response::json($operation, 200);
     }
 
     /**
@@ -68,9 +72,11 @@ class OperationController extends Controller
      * @param  \App\Operation  $operation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Operation $operation)
+    public function update(OperationRequest $request, Operation $operation)
     {
-        //
+        $operation = Operation::findOrfail($operation)->first();
+        $operation->update($request->toArray());
+        return Response::json(['message' => 'Operation bien mise à jour'], 200);
     }
 
     /**
@@ -79,8 +85,9 @@ class OperationController extends Controller
      * @param  \App\Operation  $operation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Operation $operation)
+    public function destroy($id)
     {
-        //
+        Operation::destroy($id);
+        return Response::json(['message' => 'Operation bien supprimée'], 200);
     }
 }

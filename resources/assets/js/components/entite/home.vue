@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <global-pagetitle color="warning" title="Entités Manager" subtitle="Sociétés, Marchés et Responsables." icon="shield"></global-pagetitle>
+    <global-pagetitle color="primary" title="Entités Manager" subtitle="Sociétés, Marchés et Responsables." icon="shield"></global-pagetitle>
     <br><br>
     <div class="columns is-centered">
       <div class="column is-narrow">
@@ -64,9 +64,6 @@
 
 <script>
 export default {
-  mounted(){
-    this.$parent.color = 'warning';
-  }
 }
 </script>
 

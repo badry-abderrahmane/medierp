@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <global-pagetitle title="Gestion des sociétés" subtitle="Ajout, modification et suppression."></global-pagetitle>
+    <global-pagetitle :color="this.$root.color" title="Gestion des sociétés" subtitle="Ajout, modification et suppression."></global-pagetitle>
     <div class="container">
       <div class="columns">
         <div class="column is-one-quarter"><br><br>

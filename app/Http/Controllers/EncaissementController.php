@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Encaissement;
 use Illuminate\Http\Request;
+use App\Http\Requests\EncaissementRequest;
+use Illuminate\Support\Facades\Response;
 
 class EncaissementController extends Controller
 {
@@ -34,9 +36,10 @@ class EncaissementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EncaissementRequest $request)
     {
-        //
+        $encaissement = Encaissement::create($request->toArray());
+        return Response::json(['message' => 'Encaissement bien ajouté'], 200);
     }
 
     /**
@@ -47,7 +50,8 @@ class EncaissementController extends Controller
      */
     public function show(Encaissement $encaissement)
     {
-        //
+        $encaissement = Encaissement::findOrfail($encaissement)->first();
+        return Response::json($encaissement, 200);
     }
 
     /**
@@ -68,9 +72,11 @@ class EncaissementController extends Controller
      * @param  \App\Encaissement  $encaissement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Encaissement $encaissement)
+    public function update(EncaissementRequest $request, Encaissement $encaissement)
     {
-        //
+        $encaissement = Encaissement::findOrfail($encaissement)->first();
+        $encaissement->update($request->toArray());
+        return Response::json(['message' => 'Encaissement bien mis à jour'], 200);
     }
 
     /**
@@ -79,8 +85,9 @@ class EncaissementController extends Controller
      * @param  \App\Encaissement  $encaissement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Encaissement $encaissement)
+    public function destroy($id)
     {
-        //
+      Encaissement::destroy($id);
+      return Response::json(['message' => 'Encaissement bien supprimé'], 200);
     }
 }

@@ -88,6 +88,6 @@ class SocieteController extends Controller
     public function destroy($id)
     {
       Societe::destroy($id);
-      return Response::json(['message' => 'Société bien supprimé'], 200);
+      return Response::json(['message' => 'Société bien supprimée'], 200);
     }
 }

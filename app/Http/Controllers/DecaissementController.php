@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Decaissement;
 use Illuminate\Http\Request;
+use App\Http\Requests\DecaissementRequest;
+use Illuminate\Support\Facades\Response;
 
 class DecaissementController extends Controller
 {
@@ -34,9 +36,10 @@ class DecaissementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DecaissementRequest $request)
     {
-        //
+        $decaissement = Decaissement::create($request->toArray());
+        return Response::json(['message' => 'Decaissement bien ajouté'], 200);
     }
 
     /**
@@ -47,7 +50,8 @@ class DecaissementController extends Controller
      */
     public function show(Decaissement $decaissement)
     {
-        //
+        $decaissement = Decaissement::findOrfail($decaissement)->first();
+        return Response::json($decaissement, 200);
     }
 
     /**
@@ -68,9 +72,11 @@ class DecaissementController extends Controller
      * @param  \App\Decaissement  $decaissement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Decaissement $decaissement)
+    public function update(DecaissementRequest $request, Decaissement $decaissement)
     {
-        //
+        $decaissement = Decaissement::findOrfail($decaissement)->first();
+        $decaissement->update($request->toArray());
+        return Response::json(['message' => 'Decaissement bien mis à jour'], 200);
     }
 
     /**
@@ -79,8 +85,9 @@ class DecaissementController extends Controller
      * @param  \App\Decaissement  $decaissement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Decaissement $decaissement)
+    public function destroy($id)
     {
-        //
+        Decaissement::destroy($id);
+        return Response::json(['message' => 'Decaissement bien supprimé'], 200);
     }
 }
