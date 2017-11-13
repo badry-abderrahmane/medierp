@@ -34,6 +34,40 @@ Route::resource('typecharges', 'TypechargeController');
 ** Get Totals
 **
 **/
+Route::get('totale/decaissements', function(){
+  $total = \App\Decaissement::count();
+  return $total;
+});
+Route::get('totale/encaissements', function(){
+  $total = \App\Encaissements::count();
+  return $total;
+});
+Route::get('totale/operations', function(){
+  $total = \App\Operation::count();
+  return $total;
+});
+
+Route::get('totale/alimentations', function(){
+  $total = \App\Alimentation::count();
+  return $total;
+});
+Route::get('totale/charges', function(){
+  $total = \App\Charges::count();
+  return $total;
+});
+Route::get('totale/typecharges', function(){
+  $total = \App\Typecharge::count();
+  return $total;
+});
+
+Route::get('totale/marches', function(){
+  $total = \App\Marche::count();
+  return $total;
+});
+Route::get('totale/responsables', function(){
+  $total = \App\Responsable::count();
+  return $total;
+});
 Route::get('totale/societes', function(){
   $total = \App\Societe::count();
   return $total;

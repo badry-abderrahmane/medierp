@@ -1,21 +1,23 @@
 <template lang="html">
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
+  <div class="columns">
+    <div class="column">
       <part-panel :editing="editing">
         <div slot="heading">Formulaire de charge</div>
         <div slot="body">
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
-            <div class="row">
-                <part-forms-select v-model="form" name="typecharge_id" label="Type charge" :list="typecharges" help="Spécifier le type de charge"></part-forms-select>
-                <part-forms-input v-model="form" name="date" label="Date" help="Spécifier la date de l'opération"></part-forms-input>
-                <part-forms-select v-model="form" name="responsable" label="Responsable" :list="responsables" help="Désigner un bénéficiaire de l'opération"></part-forms-select>
-                <part-forms-input v-model="form" name="designation" label="Désignation" help="Donner un nom à cet opération"></part-forms-input>
-                <part-forms-select v-model="form" name="societe_id" label="Société" :list="societes" help="Choisir la société liée à l'opération"></part-forms-select>
-                <part-forms-select v-model="form" name="marche_id" label="Marché" :list="marches" help="Choisir le marché lié à l'opération"></part-forms-select>
-                <part-forms-input v-model="form" name="montant" label="Montant" help="Spécifier le montant de l'opération (ex: 15000.80)"></part-forms-input>
+            <div class="columns">
+                <part-forms-input v-model="form" name="designation" label="Désignation" help="Taper une désignation"></part-forms-input>
+                <part-forms-input v-model="form" name="date" label="Date" help="Spécifier une date"></part-forms-input>
+                <part-forms-input v-model="form" name="montant" label="Montant" help="Spécifier un montant"></part-forms-input>
+                <part-forms-input v-model="form" name="typecharge_id" label="Type charge" help="Séléctionner le type de charge correspondant"></part-forms-input>
+                <part-forms-input v-model="form" name="marche_id" label="Marché" help="Séléctionner le marché correspondant"></part-forms-input>
+                <part-forms-input v-model="form" name="responsable_id" label="Responsable" help="Séléctionner le responsable correspondant"></part-forms-input>
+                <part-forms-input v-model="form" name="societe_id" label="Société" help="Séléctionner la société correspondante"></part-forms-input>
             </div>
-            <part-forms-button :editing="editing" ></part-forms-button>
+            <div class="columns is-centered">
+              <part-forms-button :editing="editing" ></part-forms-button>
+              <part-forms-button-reset :editing="editing" ></part-forms-button-reset>
+            </div>
           </form>
         </div>
       </part-panel>
@@ -29,14 +31,15 @@
     export default {
         data(){
           return{
-            societes:'',
-            marches:'',
-            responsables:'',
-            typecharges:'',
             form : new Form({
-              id: '',
-              name: '',
-              code:'',
+              id:'',
+              designation: '',
+              date: '',
+              montant: '',
+              typecharge_id: '',
+              marche_id: '',
+              responsable_id: '',
+              societe_id: '',
             }),
           }
         },
@@ -47,13 +50,47 @@
             }else{
               return false
             }
+          },
+          chargeId: function(){
+            return this.$route.params.id
           }
         },
         created(){
-
+          if (this.chargeId) {
+            axios.get('/charges/'+this.chargeId)
+              .then(response => {
+                this.form.load(response.data);
+            });
+          }
         },
 
         methods: {
+          onSubmit(){
+            if (this.form.id == '') {
+              this.form.post('/charges')
+                .then(data => {
+                  console.log(data.message);
+                  Event.$emit('publish-success-message', data.message);
+                  this.goback();
+                })
+                .catch(errors =>{
+                  console.log(errors);
+                });
+            }else{
+              this.form.put('/charges')
+                .then(data => {
+                  Event.$emit('publish-success-message', data.message);
+                  this.goback();
+                })
+                .catch(errors => {
+                  console.log(errors);
+                });
+            }
+          },
+
+          goback(){
+              this.$router.go(-1);
+          }
 
         }
     }

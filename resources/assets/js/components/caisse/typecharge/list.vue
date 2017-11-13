@@ -1,0 +1,65 @@
+<template>
+  <div>
+      <part-panel>
+        <div slot="heading">Liste des type de charges</div>
+        <div slot="body">
+          <part-lists-table-add>
+            <tr slot="thead">
+              <th class="col-xs-2">#ID</th>
+              <th class="col-xs-2">Nom</th>
+              <th class="col-xs-2" style="text-align: center;">Action</th>
+            </tr>
+            <tr slot="tbody" v-for="typecharge in typecharges">
+              <td class="col-xs-2">{{ typecharge.id }}</td>
+              <td class="col-xs-2">{{ typecharge.name }}</td>
+              <td class="col-xs-2" style="text-align: center;">
+                  <button class="button is-primary is-outlined" @click="showTypecharge(typecharge)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button>
+                  <button class="button is-link is-outlined" @click="editTypecharge(typecharge)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>
+                  <button  @click="destroyTypecharge(typecharge)" class="button is-danger is-outlined" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Supprimer la societe">
+                    <i class="fa fa-trash"></i>
+                  </button>
+              </td>
+            </tr>
+          </part-lists-table-add>
+        </div>
+      </part-panel>
+  </div>
+</template>
+
+<script>
+
+    export default {
+      data(){
+        return{
+          typecharges:'',
+        }
+      },
+      created(){
+        this.getTypecharges();
+      },
+
+      methods: {
+        getTypecharges(){
+          axios.get('/typecharges')
+            .then(response => {
+              this.typecharges = response.data;
+              Vue.nextTick(function () {
+                Event.$emit('init-datatable', 'tableAdd');
+              })
+          });
+        },
+
+        editTypecharge(typecharge){
+          this.$router.push({ path: `typecharge/edit/${typecharge.id}` })
+        },
+
+        destroyTypecharge(typecharge){
+          this.$router.push({ path: `typecharge/delete/${typecharge.id}` })
+        },
+
+      }
+    }
+
+
+
+</script>

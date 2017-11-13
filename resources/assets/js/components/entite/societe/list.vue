@@ -19,7 +19,7 @@
               <td class="col-xs-2" style="text-align: center;">
                   <button class="button is-primary is-outlined" @click="showMarches(societe)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button>
                   <button class="button is-link is-outlined" @click="editSociete(societe)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>
-                  <button  @click="confirmDelete(societe)" class="button is-danger is-outlined" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Supprimer la societe">
+                  <button  @click="destroySociete(societe)" class="button is-danger is-outlined" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Supprimer la societe">
                     <i class="fa fa-trash"></i>
                   </button>
               </td>
@@ -64,28 +64,10 @@
           this.$router.push({ path: `societe/edit/${societe.id}` })
         },
 
-        confirmDelete(societe){
-          this.$router.push({ path: `societe/delete/${societe.id}` })
-          // Event.$emit('show-modal-delete', 'Êtes-vous sûr de vouloir supprimer la société ?',societe);
-        },
-
         destroySociete(societe){
-          axios.delete('/societes/' + societe.id)
-              .then(response => {
-                  //console.log(response.data);
-                  this.$router.go({ path: '/entite/societe', force: true })
-              })
-              .catch(function(err){
-                  console.error(err); // This will print any error that was thrown in the previous error handler.
-              });
+          this.$router.push({ path: `societe/delete/${societe.id}` })
         },
 
-        // removeThis(id){
-        //   var index = this.societes.findIndex(function(o){
-        //        return o.id === id;
-        //   })
-        //   if (index !== -1) this.societes.splice(index, 1)
-        // }
       }
     }
 

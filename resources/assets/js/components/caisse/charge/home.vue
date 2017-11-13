@@ -1,18 +1,46 @@
 <template lang="html">
   <div>
-    <global-pagetitle title="Gestion des charges" icon="fa fa-desktop"></global-pagetitle>
-    <br><br>
-    <div class="row">
-      <div class="col-md-11">
-        <router-view></router-view>
+    <global-pagetitle :color="this.$root.color" title="Gestion des charges" subtitle="Ajout, modification et suppression."></global-pagetitle>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-one-quarter"><br><br>
+          <part-panel>
+            <div slot="heading">Infos et liens</div>
+            <div slot="body">
+              <center>
+                <a class="button is-text" @click="$router.push({ path: `/caisse/charge/add` })"><i class="fa fa-plus"></i>&nbsp;&nbsp;Ajouter charge</a>
+                <a class="button is-text" @click="$router.push({ path: `/caisse/charge` })"><i class="fa fa-list"></i>&nbsp;&nbsp;Liste des charges</a>
+                <a class="button is-text" @click="$router.push({ path: `/caisse/` })"><i class="fa fa-building"></i>&nbsp;&nbsp;Caisse manager</a>
+              </center>
+              <hr>
+              <center>
+                <p class="title is-6">Nombre totale des charges :</p>
+                <span class="tag is-primary is-medium">{{ totalCharges }}</span>
+              </center>
+            </div>
+          </part-panel>
+        </div>
+        <div class="column"><br><br>
+          <router-view></router-view>
+        </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 export default {
+  data(){
+    return{
+      totalCharges:'',
+    }
+  },
+  created(){
+    axios.get('/totale/charges')
+      .then(response => {
+        this.totalCharges = response.data;
+    });
+  }
 }
 </script>
 

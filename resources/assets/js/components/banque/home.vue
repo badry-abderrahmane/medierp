@@ -16,8 +16,8 @@
                 <p class="title is-4">Gestion des encaissemnts</p>
               </div>
             </div>
-            <a class="button is-primary is-inverted is-outlined" @click="$router.push({ path: `/banque/encaissment/add` })"><i class="fa fa-plus"></i>&nbsp;&nbsp;Ajouter encaissment</a>
-            <a class="button is-primary is-inverted is-outlined" @click="$router.push({ path: `/banque/encaissment` })"><i class="fa fa-list"></i>&nbsp;&nbsp;Liste des encaissments</a>
+            <a class="button is-primary is-inverted is-outlined" @click="$router.push({ path: `/banque/encaissement/add` })"><i class="fa fa-plus"></i>&nbsp;&nbsp;Ajouter encaissement</a>
+            <a class="button is-primary is-inverted is-outlined" @click="$router.push({ path: `/banque/encaissement` })"><i class="fa fa-list"></i>&nbsp;&nbsp;Liste des encaissements</a>
           </div>
         </part-tile>
       </div>
@@ -31,11 +31,11 @@
                     <i class="fa fa-3x fa-caret-square-o-down"></i>
                   </span>
                 </center><br>
-                <p class="title is-4">Gestion des décaissments</p>
+                <p class="title is-4">Gestion des décaissements</p>
               </div>
             </div>
-            <a class="button is-primary is-inverted is-outlined" @click="$router.push({ path: `/banque/decaissment/add` })"><i class="fa fa-plus"></i>&nbsp;&nbsp;Ajouter décaissment</a>
-            <a class="button is-primary is-inverted is-outlined" @click="$router.push({ path: `/banque/decaissment` })"><i class="fa fa-list"></i>&nbsp;&nbsp;Liste des décaissments</a>
+            <a class="button is-primary is-inverted is-outlined" @click="$router.push({ path: `/banque/decaissement/add` })"><i class="fa fa-plus"></i>&nbsp;&nbsp;Ajouter décaissement</a>
+            <a class="button is-primary is-inverted is-outlined" @click="$router.push({ path: `/banque/decaissement` })"><i class="fa fa-list"></i>&nbsp;&nbsp;Liste des décaissements</a>
           </div>
         </part-tile>
       </div>
