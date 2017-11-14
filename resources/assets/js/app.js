@@ -59,6 +59,7 @@ const app = new Vue({
     mounted(){
       this.$nextTick(function () {
         // entire view has been rendered
+
         this.loadTooltips();
       })
 
@@ -66,36 +67,52 @@ const app = new Vue({
     methods:{
         /** Function get shared objects **/
         getResposables(){
-          axios.get('/responsables')
+          axios.get('list/responsables')
             .then(response => {
-              this.responsables = response.data;
+              this.responsables =  this.toObjectSelect(response.data);
           });
         },
         getSocietes(){
-          axios.get('/societes')
+          axios.get('list/societes')
             .then(response => {
-              this.societes = response.data;
+              this.societes =  this.toObjectSelect(response.data);
           });
         },
         getMarches(){
-          axios.get('/marches')
+          axios.get('list/marches')
             .then(response => {
-              this.marches = response.data;
+              this.marches =  this.toObjectSelect(response.data);
           });
         },
         getTypecharges(){
-          axios.get('/typecharges')
+          axios.get('list/typecharges')
             .then(response => {
-              this.typecharges = response.data;
+              this.typecharges =  this.toObjectSelect(response.data);
           });
         },
         getOperations(){
-          axios.get('/operations')
+          axios.get('list/operations')
             .then(response => {
-              this.operations = response.data;
+              this.operations =  this.toObjectSelect(response.data);
           });
         },
 
+        //** In need functions
+        toObjectSelect(jsonObject){
+          let array = [];
+          var empty = {};
+          empty['text'] = '';
+          empty['id'] = '';
+          array.push(empty);
+
+          for (var prop in jsonObject) {
+                let item = {};
+                item['text'] = jsonObject[prop];
+                item['id'] = prop;
+                array.push(item);
+          }
+        return array;
+        },
         /**
         * Tooltips Functions
         *
@@ -112,6 +129,13 @@ const app = new Vue({
                   </div>'
               });
           });
+        },
+        /**
+        * Select2 Functions
+        *
+        **/
+        loadSelect2(){
+          $('.select2').select2();
         },
         /**
         * DataTables Functions
@@ -205,5 +229,7 @@ const app = new Vue({
           };
           toastr.warning(message);
         },
+
+
     }
 }).$mount('#app');

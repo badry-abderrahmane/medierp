@@ -11,6 +11,9 @@ Vue.component('part-forms-input', require('./parts/forms/input.vue'));
 Vue.component('part-forms-button', require('./parts/forms/button.vue'));
 Vue.component('part-forms-button-reset', require('./parts/forms/buttonReset.vue'));
 Vue.component('part-forms-date-picker', require('./parts/forms/datePicker.vue'));
+Vue.component('part-forms-select-dos', require('./parts/forms/select2.vue'));
+Vue.component('part-forms-select-full', require('./parts/forms/selectFull.vue'));
+Vue.component('select2', require('./parts/forms/select2.vue'));
 
 Vue.component('part-forms-select', require('./parts/forms/select.vue'));
 Vue.component('part-forms-dynamic-select', require('./parts/forms/selectDynamic.vue'));

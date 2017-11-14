@@ -3,8 +3,8 @@
     <label :for="name" class="label">{{ label }}</label>
     <div class="field">
       <div class="control">
-        <div v-bind:class="[ value.errors.get(name) ? 'is-danger' : 'is-primary', 'select']">
-          <select :name="name" style="min-width:220px;"
+        <div v-bind:class="[ value.errors.get(name) ? 'is-danger' : 'is-primary', '']">
+          <select :name="name" style="min-width:220px;" class="select2"
                                       v-model="value[name]" @change="value.errors.clear(name)">
                 <option v-for="item in list" v-bind:value="item.id"> {{ item.name }}</option>
           </select>

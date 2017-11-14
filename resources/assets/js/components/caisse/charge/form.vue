@@ -9,9 +9,9 @@
                 <part-forms-input v-model="form" name="designation" label="Désignation" help="Taper une désignation"></part-forms-input>
                 <part-forms-date-picker v-model="form" name="date" label="Date" help="Spécifier une date"></part-forms-date-picker>
                 <part-forms-input v-model="form" name="montant" label="Montant" help="Spécifier un montant"></part-forms-input>
-                <part-forms-select v-model="form" :list="$root.typecharges" name="typecharge_id" label="Type charge" help="Séléctionner le type de charge correspondant"></part-forms-select>
-                <part-forms-select v-model="form" :list="$root.marches" name="marche_id" label="Marché" help="Séléctionner le marché correspondant"></part-forms-select>
-                <part-forms-select v-model="form" :list="$root.responsables" name="responsable_id" label="Responsable" help="Séléctionner le responsable correspondant"></part-forms-select>
+                <part-forms-select-full v-model="form" :list="$root.typecharges" name="typecharge_id" label="Type charge" help="Séléctionner le type de charge correspondant"></part-forms-select-full>
+                <part-forms-select-full v-model="form" :list="$root.marches" name="marche_id" label="Marché" help="Séléctionner le marché correspondant"></part-forms-select-full>
+                <part-forms-select-full v-model="form" :list="$root.responsables" name="responsable_id" label="Responsable" help="Séléctionner le responsable correspondant"></part-forms-select-full>
                 <!-- <part-forms-select v-model="form" :list="$root.societes" name="societe_id" label="Société" help="Séléctionner la société corresspondante"></part-forms-select> -->
             </div>
             <div class="columns is-centered">

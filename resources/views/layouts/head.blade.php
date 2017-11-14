@@ -14,6 +14,7 @@
   <link href="css/dataTables.material.min.css" rel="stylesheet">
   <link href="css/toastr.min.css" rel="stylesheet">
   <link href="css/buttons.dataTables.min.css" rel="stylesheet">
+  <link href="css/select2.min.css" rel="stylesheet">
   <link href="css/app.css" rel="stylesheet">
 
   <!-- Icons -->

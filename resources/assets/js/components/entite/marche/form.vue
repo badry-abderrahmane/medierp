@@ -11,7 +11,7 @@
                 <part-forms-input v-model="form" name="delais" label="Délais" help="Spécifier un délais"></part-forms-input>
                 <part-forms-input v-model="form" name="numero" label="Numéro" help="Spécifier un numéro unique"></part-forms-input>
                 <part-forms-input v-model="form" name="montant" label="Montant total" help="Spécifier un montant total"></part-forms-input>
-                <part-forms-select v-model="form" :list="$root.societes" name="societe_id" label="Société" help="Séléctionner la société corresspondante"></part-forms-select>
+                <part-forms-select-full v-model="form" :list="$root.societes" name="societe_id" label="Société" help="Séléctionner la société corresspondante"></part-forms-select-full>
             </div>
             <div class="columns is-centered">
               <part-forms-button :editing="editing" ></part-forms-button>

@@ -8,10 +8,10 @@
             <div class="columns is-multiline">
                 <part-forms-input v-model="form" name="designation" label="Désignation" help="Taper une désignation"></part-forms-input>
                 <part-forms-date-picker v-model="form" name="date" label="Date" help="Spécifier une date"></part-forms-date-picker>
-                <part-forms-select v-model="form" :list="$root.operations" name="operation_id" label="Type d'opération" help="Spécifier un type d'opération"></part-forms-select>
+                <part-forms-select-full v-model="form" :list="$root.operations" name="operation_id" label="Type d'opération" help="Spécifier un type d'opération"></part-forms-select-full>
                 <part-forms-input v-model="form" name="code" label="Code" help="Spécifier un code"></part-forms-input>
                 <part-forms-input v-model="form" name="montant" label="Montant" help="Spécifier un montant"></part-forms-input>
-                <part-forms-select v-model="form" :list="$root.marches" name="marche_id" label="Marché" help="Séléctionner le marché correspondant"></part-forms-select>
+                <part-forms-select-full v-model="form" :list="$root.marches" name="marche_id" label="Marché" help="Séléctionner le marché correspondant"></part-forms-select-full>
             </div>
             <div class="columns is-centered">
               <part-forms-button :editing="editing" ></part-forms-button>

@@ -29,7 +29,30 @@ Route::resource('societes', 'SocieteController');
 Route::resource('marches', 'MarcheController');
 Route::resource('typecharges', 'TypechargeController');
 
-
+/**
+** Get Lists
+**
+**/
+Route::get('list/responsables', function(){
+  $list = \App\Responsable::pluck('name','id')->toJson();
+  return $list;
+});
+Route::get('list/societes', function(){
+  $list = \App\Societe::pluck('name','id')->toJson();
+  return $list;
+});
+Route::get('list/marches', function(){
+  $list = \App\Marche::pluck('name','id')->toJson();
+  return $list;
+});
+Route::get('list/typecharges', function(){
+  $list = \App\Typecharge::pluck('name','id')->toJson();
+  return $list;
+});
+Route::get('list/operations', function(){
+  $list = \App\Operation::pluck('name','id')->toJson();
+  return $list;
+});
 /**
 ** Get Totals
 **
