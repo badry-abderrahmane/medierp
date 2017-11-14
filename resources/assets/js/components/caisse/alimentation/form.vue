@@ -7,13 +7,13 @@
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
             <div class="columns">
                 <part-forms-input v-model="form" name="designation" label="Désignation" help="Taper une désignation"></part-forms-input>
-                <part-forms-input v-model="form" name="date" label="Date" help="Spécifier une date"></part-forms-input>
+                <part-forms-date-picker v-model="form" name="date" label="Date" help="Spécifier une date"></part-forms-date-picker>
                 <part-forms-input v-model="form" name="montant" label="Montant" help="Spécifier un montant"></part-forms-input>
                 <part-forms-select v-model="form" :list="$root.responsables" name="responsable_id" label="Responsable" help="Séléctionner le responsable correspondant"></part-forms-select>
             </div>
             <div class="columns is-centered">
               <part-forms-button :editing="editing" ></part-forms-button>
-              <part-forms-button-reset :editing="editing" ></part-forms-button-reset>
+              <part-forms-button-reset></part-forms-button-reset>
             </div>
           </form>
         </div>

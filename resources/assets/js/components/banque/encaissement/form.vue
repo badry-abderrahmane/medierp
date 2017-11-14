@@ -7,7 +7,7 @@
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
             <div class="columns is-multiline">
                 <part-forms-input v-model="form" name="designation" label="Désignation" help="Taper une désignation"></part-forms-input>
-                <part-forms-input v-model="form" name="date" label="Date" help="Spécifier une date"></part-forms-input>
+                <part-forms-date-picker v-model="form" name="date" label="Date" help="Spécifier une date"></part-forms-date-picker>
                 <part-forms-input v-model="form" name="montant" label="Montant" help="Spécifier un montant"></part-forms-input>
                 <part-forms-input v-model="form" name="description" label="Description" help="Donner une description"></part-forms-input>
                 <part-forms-select v-model="form" :list="$root.marches" name="marche_id" label="Marché" help="Séléctionner le marché correspondant"></part-forms-select>
