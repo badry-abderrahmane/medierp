@@ -59,6 +59,8 @@
                 .then(data => {
                   console.log(data.message);
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleTypecharges();
+                  this.$root.getTypecharges();
                   this.goback();
                 })
                 .catch(errors =>{
@@ -68,6 +70,8 @@
               this.form.put('/typecharges')
                 .then(data => {
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleTypecharges();
+                  this.$root.getTypecharges();
                   this.goback();
                 })
                 .catch(errors => {

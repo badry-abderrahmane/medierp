@@ -47,6 +47,8 @@ export default {
     deleteOperation(){
       axios.delete('/operations/'+this.$route.params.id)
           .then(response => {
+            this.$root.getOperations();
+            this.$parent.getTotaleOperations();
             this.$router.go(-1);
           })
           .catch(function(err){

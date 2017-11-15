@@ -36,10 +36,15 @@ export default {
     }
   },
   created(){
-    axios.get('/totale/societes')
-      .then(response => {
-        this.totalSociete = response.data;
-    });
+    this.getTotaleSocietes();
+  },
+  methods:{
+    getTotaleSocietes(){
+      axios.get('/totale/societes')
+        .then(response => {
+          this.totalSociete = response.data;
+      });
+    }
   }
 }
 </script>

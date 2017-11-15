@@ -59,8 +59,9 @@
             if (this.form.id == '') {
               this.form.post('/societes')
                 .then(data => {
-                  console.log(data.message);
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleSocietes();
+                  this.$root.getSocietes();
                   this.goback();
                 })
                 .catch(errors =>{
@@ -70,6 +71,8 @@
               this.form.put('/societes')
                 .then(data => {
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleSocietes();
+                  this.$root.getSocietes();
                   this.goback();
                 })
                 .catch(errors => {

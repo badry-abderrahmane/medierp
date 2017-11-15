@@ -36,10 +36,15 @@ export default {
     }
   },
   created(){
-    axios.get('/totale/operations')
-      .then(response => {
-        this.totalOperations = response.data;
-    });
+    this.getTotaleOperations();
+  },
+  methods:{
+    getTotaleOperations(){
+      axios.get('/totale/operations')
+        .then(response => {
+          this.totalOperations = response.data;
+      });
+    }
   }
 }
 </script>

@@ -67,6 +67,7 @@
                 .then(data => {
                   console.log(data.message);
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleEncaissements();
                   this.goback();
                 })
                 .catch(errors =>{
@@ -76,6 +77,7 @@
               this.form.put('/encaissements')
                 .then(data => {
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleEncaissements();
                   this.goback();
                 })
                 .catch(errors => {

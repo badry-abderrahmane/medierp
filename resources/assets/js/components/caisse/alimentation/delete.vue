@@ -43,6 +43,7 @@ export default {
     deleteAlimentation(){
       axios.delete('/alimentations/'+this.$route.params.id)
           .then(response => {
+            this.$parent.getTotaleAlimentations();
             this.$router.go(-1);
           })
           .catch(function(err){

@@ -36,10 +36,15 @@ export default {
     }
   },
   created(){
-    axios.get('/totale/typecharges')
-      .then(response => {
-        this.totalTypecharges = response.data;
-    });
+    this.getTotaleTypecharges();
+  },
+  methods:{
+    getTotaleTypecharges(){
+      axios.get('/totale/typecharges')
+        .then(response => {
+          this.totalTypecharges = response.data;
+      });
+    }
   }
 }
 </script>

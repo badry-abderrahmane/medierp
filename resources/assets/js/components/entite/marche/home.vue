@@ -36,10 +36,15 @@ export default {
     }
   },
   created(){
-    axios.get('/totale/marches')
-      .then(response => {
-        this.totalMarches = response.data;
-    });
+    this.getTotaleMarches();
+  },
+  methods:{
+    getTotaleMarches(){
+      axios.get('/totale/marches')
+        .then(response => {
+          this.totalMarches = response.data;
+      });
+    }
   }
 }
 </script>

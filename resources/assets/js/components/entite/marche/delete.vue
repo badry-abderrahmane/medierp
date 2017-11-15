@@ -48,6 +48,8 @@ export default {
     deleteMarche(){
       axios.delete('/marches/'+this.$route.params.id)
           .then(response => {
+            this.$parent.getTotaleMarches();
+            this.$root.getMarches();
             this.$router.go(-1);
           })
           .catch(function(err){

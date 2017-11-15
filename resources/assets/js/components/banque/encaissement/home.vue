@@ -36,10 +36,15 @@ export default {
     }
   },
   created(){
-    axios.get('/totale/encaissements')
-      .then(response => {
-        this.totalEncaissements = response.data;
-    });
+    this.getTotaleEncaissements();
+  },
+  methods:{
+    getTotaleEncaissements(){
+      axios.get('/totale/encaissements')
+        .then(response => {
+          this.totalEncaissements = response.data;
+      });
+    }
   }
 }
 </script>

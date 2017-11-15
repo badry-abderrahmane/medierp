@@ -66,6 +66,7 @@
                 .then(data => {
                   console.log(data.message);
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleAlimentations();
                   this.goback();
                 })
                 .catch(errors =>{
@@ -75,6 +76,7 @@
               this.form.put('/alimentations')
                 .then(data => {
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleAlimentations();
                   this.goback();
                 })
                 .catch(errors => {

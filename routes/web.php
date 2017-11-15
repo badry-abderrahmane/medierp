@@ -75,7 +75,7 @@ Route::get('totale/alimentations', function(){
   return $total;
 });
 Route::get('totale/charges', function(){
-  $total = \App\Charges::count();
+  $total = \App\Charge::count();
   return $total;
 });
 Route::get('totale/typecharges', function(){

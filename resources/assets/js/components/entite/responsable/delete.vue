@@ -47,6 +47,8 @@ export default {
     deleteResponsable(){
       axios.delete('/responsables/'+this.$route.params.id)
           .then(response => {
+            this.$parent.getTotaleResponsables();
+            this.$root.getResponsables();
             this.$router.go(-1);
           })
           .catch(function(err){

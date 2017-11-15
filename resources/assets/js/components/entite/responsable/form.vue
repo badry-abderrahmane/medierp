@@ -59,8 +59,9 @@
             if (this.form.id == '') {
               this.form.post('/responsables')
                 .then(data => {
-                  console.log(data.message);
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleResponsables();
+                  this.$root.getResponsables();
                   this.goback();
                 })
                 .catch(errors =>{
@@ -70,6 +71,8 @@
               this.form.put('/responsables')
                 .then(data => {
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleResponsables();
+                  this.$root.getResponsables();
                   this.goback();
                 })
                 .catch(errors => {

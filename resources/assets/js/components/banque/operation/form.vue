@@ -57,8 +57,9 @@
             if (this.form.id == '') {
               this.form.post('/operations')
                 .then(data => {
-                  console.log(data.message);
                   Event.$emit('publish-success-message', data.message);
+                  this.$root.getOperations();
+                  this.$parent.getTotaleOperations();
                   this.goback();
                 })
                 .catch(errors =>{
@@ -68,6 +69,8 @@
               this.form.put('/operations')
                 .then(data => {
                   Event.$emit('publish-success-message', data.message);
+                  this.$root.getOperations();
+                  this.$parent.getTotaleOperations();
                   this.goback();
                 })
                 .catch(errors => {

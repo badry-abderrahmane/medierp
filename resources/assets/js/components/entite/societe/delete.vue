@@ -47,6 +47,8 @@ export default {
     deleteSociete(){
       axios.delete('/societes/'+this.$route.params.id)
           .then(response => {
+            this.$parent.getTotaleSocietes();
+            this.$root.getSocietes();
             this.$router.go(-1);
           })
           .catch(function(err){

@@ -36,10 +36,15 @@ export default {
     }
   },
   created(){
-    axios.get('/totale/alimentations')
-      .then(response => {
-        this.totalAlimentations = response.data;
-    });
+    this.getTotaleAlimentations();
+  },
+  methods:{
+    getTotaleAlimentations(){
+      axios.get('/totale/alimentations')
+        .then(response => {
+          this.totalAlimentations = response.data;
+      });
+    }
   }
 }
 </script>

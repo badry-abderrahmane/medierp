@@ -36,7 +36,7 @@ const app = new Vue({
   },
   created(){
       /** Init Functions Shared objects **/
-      this.getResposables();
+      this.getResponsables();
       this.getSocietes();
       this.getMarches();
       this.getTypecharges();
@@ -66,7 +66,7 @@ const app = new Vue({
     },
     methods:{
         /** Function get shared objects **/
-        getResposables(){
+        getResponsables(){
           axios.get('list/responsables')
             .then(response => {
               this.responsables =  this.toObjectSelect(response.data);

@@ -46,6 +46,8 @@ export default {
     deleteTypecharge(){
       axios.delete('/typecharges/'+this.$route.params.id)
           .then(response => {
+            this.$root.getTypecharges();
+            this.$parent.getTotaleTypecharges();
             this.$router.go(-1);
           })
           .catch(function(err){

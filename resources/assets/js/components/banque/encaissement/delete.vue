@@ -43,6 +43,7 @@ export default {
     deleteEncaissement(){
       axios.delete('/encaissements/'+this.$route.params.id)
           .then(response => {
+            this.$parent.getTotaleEncaissements();
             this.$router.go(-1);
           })
           .catch(function(err){

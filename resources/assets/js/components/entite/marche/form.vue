@@ -7,7 +7,7 @@
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
             <div class="columns is-multiline">
                 <part-forms-input v-model="form" name="name" label="Nom" help="Spécifier un nom du marché"></part-forms-input>
-                <part-forms-date-picker v-model="form" name="date" label="Date" help="Spécifier une date"></part-forms-date-picker>
+                <part-forms-date-picker v-model="form" name="dateDebut" label="Date" help="Spécifier une date"></part-forms-date-picker>
                 <part-forms-input v-model="form" name="delais" label="Délais" help="Spécifier un délais"></part-forms-input>
                 <part-forms-input v-model="form" name="numero" label="Numéro" help="Spécifier un numéro unique"></part-forms-input>
                 <part-forms-input v-model="form" name="montant" label="Montant total" help="Spécifier un montant total"></part-forms-input>
@@ -15,7 +15,7 @@
             </div>
             <div class="columns is-centered">
               <part-forms-button :editing="editing" ></part-forms-button>
-              <part-forms-button-reset :editing="editing" ></part-forms-button-reset>
+              <part-forms-button-reset></part-forms-button-reset>
             </div>
           </form>
         </div>
@@ -69,6 +69,8 @@
                 .then(data => {
                   console.log(data.message);
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleMarches();
+                  this.$root.getMarches();
                   this.goback();
                 })
                 .catch(errors =>{
@@ -78,6 +80,8 @@
               this.form.put('/marches')
                 .then(data => {
                   Event.$emit('publish-success-message', data.message);
+                  this.$parent.getTotaleMarches();
+                  this.$root.getMarches();
                   this.goback();
                 })
                 .catch(errors => {

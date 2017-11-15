@@ -43,6 +43,7 @@ export default {
     deleteCharge(){
       axios.delete('/charges/'+this.$route.params.id)
           .then(response => {
+            this.$parent.getTotaleCharges();
             this.$router.go(-1);
           })
           .catch(function(err){

@@ -36,10 +36,15 @@ export default {
     }
   },
   created(){
-    axios.get('/totale/decaissements')
-      .then(response => {
-        this.totalDecaissements = response.data;
-    });
+    this.getTotaleDecaissements();
+  },
+  methods:{
+    getTotaleDecaissements(){
+      axios.get('/totale/decaissements')
+        .then(response => {
+          this.totalDecaissements = response.data;
+      });
+    }
   }
 }
 </script>

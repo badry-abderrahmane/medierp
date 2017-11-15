@@ -36,10 +36,15 @@ export default {
     }
   },
   created(){
-    axios.get('/totale/responsables')
-      .then(response => {
-        this.totalResponsables = response.data;
-    });
+    this.getTotaleResponsables();
+  },
+  methods:{
+    getTotaleResponsables(){
+      axios.get('/totale/responsables')
+        .then(response => {
+          this.totalResponsables = response.data;
+      });
+    }
   }
 }
 </script>
