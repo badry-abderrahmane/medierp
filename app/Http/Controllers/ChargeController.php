@@ -52,9 +52,9 @@ class ChargeController extends Controller
      * @param  \App\Charge  $charge
      * @return \Illuminate\Http\Response
      */
-    public function show(Charge $charge)
+    public function show($charge)
     {
-        $charge = Charge::findOrfail($charge)->first();
+        $charge = Charge::findOrfail($charge);
         $charge->societe;
         $charge->marche;
         $charge->responsable;

@@ -40521,16 +40521,19 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [_vm._t("filter")], 2)
+    _c("div", { staticClass: "columns" }, [
+      _c("div", { staticClass: "column" }, [_vm._t("filter")], 2)
     ]),
     _c("br"),
     _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
+    _c("div", { staticClass: "columns" }, [
+      _c("div", { staticClass: "column" }, [
         _c(
           "table",
-          { staticClass: "table is-bordered", attrs: { id: "tableAdd" } },
+          {
+            staticClass: "table is-bordered is-narrow is-fullwidth",
+            attrs: { id: "tableAdd" }
+          },
           [
             _c("thead", [_vm._t("thead")], 2),
             _vm._v(" "),
@@ -41519,7 +41522,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "column" },
+            { staticClass: "column is-11" },
             [_c("br"), _c("br"), _vm._v(" "), _c("router-view")],
             1
           )
@@ -41690,33 +41693,27 @@ var render = function() {
               "part-lists-table-add",
               [
                 _c("tr", { attrs: { slot: "thead" }, slot: "thead" }, [
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("#ID")]),
+                  _c("th", { attrs: { width: "12%" } }, [_vm._v("Date")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [
+                  _c("th", { attrs: { width: "30%" } }, [
                     _vm._v("Désignation")
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Date")]),
+                  _c("th", [_vm._v("Montant")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Montant")]),
+                  _c("th", [_vm._v("Type charge")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [
-                    _vm._v("Type charge")
-                  ]),
+                  _c("th", [_vm._v("Responsable")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [
-                    _vm._v("Responsable")
-                  ]),
+                  _c("th", [_vm._v("Marché")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Marché")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Société")]),
+                  _c("th", [_vm._v("Société")]),
                   _vm._v(" "),
                   _c(
                     "th",
                     {
-                      staticClass: "col-xs-2",
-                      staticStyle: { "text-align": "center" }
+                      staticStyle: { "text-align": "center" },
+                      attrs: { width: "10%" }
                     },
                     [_vm._v("Action")]
                   )
@@ -41724,103 +41721,59 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.charges, function(charge) {
                   return _c("tr", { attrs: { slot: "tbody" }, slot: "tbody" }, [
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.id))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(charge.date))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.designation))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(charge.designation))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.date))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(charge.montant))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.montant))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(charge.typecharge.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.typecharge.name))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(charge.responsable.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.responsable.name))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(charge.marche.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.marche.name))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(charge.societe.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.societe.name))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass: "col-xs-2",
-                        staticStyle: { "text-align": "center" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-primary is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Liste des marchés"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.showCharge(charge)
-                              }
-                            }
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-link is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Modifier la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-eye" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-link is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Modifier la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.editCharge(charge)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.editCharge(charge)
                             }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-danger is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Supprimer la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-edit" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-danger is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Supprimer la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.destroyCharge(charge)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.destroyCharge(charge)
                             }
-                          },
-                          [_c("i", { staticClass: "fa fa-trash" })]
-                        )
-                      ]
-                    )
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      )
+                    ])
                   ])
                 })
               ],
@@ -42744,7 +42697,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "column" },
+            { staticClass: "column is-11" },
             [_c("br"), _c("br"), _vm._v(" "), _c("router-view")],
             1
           )
@@ -42909,25 +42862,21 @@ var render = function() {
               "part-lists-table-add",
               [
                 _c("tr", { attrs: { slot: "thead" }, slot: "thead" }, [
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("#ID")]),
+                  _c("th", { attrs: { width: "12%" } }, [_vm._v("Date")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [
+                  _c("th", { attrs: { width: "30%" } }, [
                     _vm._v("Désignation")
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Date")]),
+                  _c("th", [_vm._v("Montant")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Montant")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [
-                    _vm._v("Responsable")
-                  ]),
+                  _c("th", [_vm._v("Responsable")]),
                   _vm._v(" "),
                   _c(
                     "th",
                     {
-                      staticClass: "col-xs-2",
-                      staticStyle: { "text-align": "center" }
+                      staticStyle: { "text-align": "center" },
+                      attrs: { width: "10%" }
                     },
                     [_vm._v("Action")]
                   )
@@ -42935,91 +42884,53 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.alimentations, function(alimentation) {
                   return _c("tr", { attrs: { slot: "tbody" }, slot: "tbody" }, [
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(alimentation.id))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(alimentation.date))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(alimentation.designation))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(alimentation.designation))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(alimentation.date))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(alimentation.montant))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(alimentation.montant))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(alimentation.responsable.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(alimentation.responsable.name))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass: "col-xs-2",
-                        staticStyle: { "text-align": "center" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-primary is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Liste des marchés"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.showAlimentation(alimentation)
-                              }
-                            }
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-link is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Modifier la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-eye" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-link is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Modifier la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.editAlimentation(alimentation)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.editAlimentation(alimentation)
                             }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-danger is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Supprimer la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-edit" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-danger is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Supprimer la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.destroyAlimentation(alimentation)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.destroyAlimentation(alimentation)
                             }
-                          },
-                          [_c("i", { staticClass: "fa fa-trash" })]
-                        )
-                      ]
-                    )
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      )
+                    ])
                   ])
                 })
               ],
@@ -43805,7 +43716,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "column" },
+            { staticClass: "column is-11" },
             [_c("br"), _c("br"), _vm._v(" "), _c("router-view")],
             1
           )
@@ -43964,15 +43875,13 @@ var render = function() {
               "part-lists-table-add",
               [
                 _c("tr", { attrs: { slot: "thead" }, slot: "thead" }, [
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("#ID")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Nom")]),
+                  _c("th", [_vm._v("Nom")]),
                   _vm._v(" "),
                   _c(
                     "th",
                     {
-                      staticClass: "col-xs-2",
-                      staticStyle: { "text-align": "center" }
+                      staticStyle: { "text-align": "center" },
+                      attrs: { width: "20%" }
                     },
                     [_vm._v("Action")]
                   )
@@ -43980,79 +43889,47 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.typecharges, function(typecharge) {
                   return _c("tr", { attrs: { slot: "tbody" }, slot: "tbody" }, [
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(typecharge.id))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(typecharge.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(typecharge.name))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass: "col-xs-2",
-                        staticStyle: { "text-align": "center" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-primary is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Liste des marchés"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.showTypecharge(typecharge)
-                              }
-                            }
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-link is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Modifier la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-eye" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-link is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Modifier la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.editTypecharge(typecharge)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.editTypecharge(typecharge)
                             }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-danger is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Supprimer la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-edit" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-danger is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Supprimer la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.destroyTypecharge(typecharge)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.destroyTypecharge(typecharge)
                             }
-                          },
-                          [_c("i", { staticClass: "fa fa-trash" })]
-                        )
-                      ]
-                    )
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      )
+                    ])
                   ])
                 })
               ],
@@ -45204,7 +45081,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "column" },
+            { staticClass: "column is-11" },
             [_c("br"), _c("br"), _vm._v(" "), _c("router-view")],
             1
           )
@@ -45369,23 +45246,21 @@ var render = function() {
               "part-lists-table-add",
               [
                 _c("tr", { attrs: { slot: "thead" }, slot: "thead" }, [
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("#ID")]),
+                  _c("th", { attrs: { width: "12%" } }, [_vm._v("Date")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [
+                  _c("th", { attrs: { width: "30%" } }, [
                     _vm._v("Désignation")
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Date")]),
+                  _c("th", [_vm._v("Montant")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Montant")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Marché")]),
+                  _c("th", [_vm._v("Marché")]),
                   _vm._v(" "),
                   _c(
                     "th",
                     {
-                      staticClass: "col-xs-2",
-                      staticStyle: { "text-align": "center" }
+                      staticStyle: { "text-align": "center" },
+                      attrs: { width: "15%" }
                     },
                     [_vm._v("Action")]
                   )
@@ -45393,91 +45268,53 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.encaissements, function(encaissement) {
                   return _c("tr", { attrs: { slot: "tbody" }, slot: "tbody" }, [
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(encaissement.id))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(encaissement.date))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(encaissement.designation))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(encaissement.designation))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(encaissement.date))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(encaissement.montant))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(encaissement.montant))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(encaissement.marche.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(encaissement.marche.name))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass: "col-xs-2",
-                        staticStyle: { "text-align": "center" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-primary is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Liste des marchés"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.showEncaissement(encaissement)
-                              }
-                            }
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-link is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Modifier la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-eye" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-link is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Modifier la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.editEncaissement(encaissement)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.editEncaissement(encaissement)
                             }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-danger is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Supprimer la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-edit" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-danger is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Supprimer la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.destroyEncaissement(encaissement)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.destroyEncaissement(encaissement)
                             }
-                          },
-                          [_c("i", { staticClass: "fa fa-trash" })]
-                        )
-                      ]
-                    )
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      )
+                    ])
                   ])
                 })
               ],
@@ -46279,7 +46116,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "column" },
+            { staticClass: "column is-11" },
             [_c("br"), _c("br"), _vm._v(" "), _c("router-view")],
             1
           )
@@ -46448,29 +46285,25 @@ var render = function() {
               "part-lists-table-add",
               [
                 _c("tr", { attrs: { slot: "thead" }, slot: "thead" }, [
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("#ID")]),
+                  _c("th", { attrs: { width: "12%" } }, [_vm._v("Date")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [
+                  _c("th", { attrs: { width: "30%" } }, [
                     _vm._v("Désignation")
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Date")]),
+                  _c("th", [_vm._v("Type d'opération")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [
-                    _vm._v("Type d'opération")
-                  ]),
+                  _c("th", [_vm._v("Code")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Code")]),
+                  _c("th", [_vm._v("Montant")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Montant")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Marché")]),
+                  _c("th", { attrs: { width: "" } }, [_vm._v("Marché")]),
                   _vm._v(" "),
                   _c(
                     "th",
                     {
-                      staticClass: "col-xs-2",
-                      staticStyle: { "text-align": "center" }
+                      staticStyle: { "text-align": "center" },
+                      attrs: { width: "15%" }
                     },
                     [_vm._v("Action")]
                   )
@@ -46478,99 +46311,57 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.decaissements, function(decaissement) {
                   return _c("tr", { attrs: { slot: "tbody" }, slot: "tbody" }, [
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(decaissement.id))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(decaissement.date))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(decaissement.designation))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(decaissement.designation))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(decaissement.date))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(decaissement.operation.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(decaissement.operation.name))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(decaissement.code))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(decaissement.code))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(decaissement.montant))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(decaissement.montant))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(decaissement.marche.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(decaissement.marche.name))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass: "col-xs-2",
-                        staticStyle: { "text-align": "center" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-primary is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Liste des marchés"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.showDecaissement(decaissement)
-                              }
-                            }
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-link is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Modifier la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-eye" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-link is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Modifier la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.editDecaissement(decaissement)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.editDecaissement(decaissement)
                             }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-danger is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Supprimer la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-edit" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-danger is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Supprimer la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.destroyDecaissement(decaissement)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.destroyDecaissement(decaissement)
                             }
-                          },
-                          [_c("i", { staticClass: "fa fa-trash" })]
-                        )
-                      ]
-                    )
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      )
+                    ])
                   ])
                 })
               ],
@@ -47390,7 +47181,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "column" },
+            { staticClass: "column is-11" },
             [_c("br"), _c("br"), _vm._v(" "), _c("router-view")],
             1
           )
@@ -47549,15 +47340,13 @@ var render = function() {
               "part-lists-table-add",
               [
                 _c("tr", { attrs: { slot: "thead" }, slot: "thead" }, [
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("#ID")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Nom")]),
+                  _c("th", [_vm._v("Nom")]),
                   _vm._v(" "),
                   _c(
                     "th",
                     {
-                      staticClass: "col-xs-2",
-                      staticStyle: { "text-align": "center" }
+                      staticStyle: { "text-align": "center" },
+                      attrs: { width: "15%" }
                     },
                     [_vm._v("Action")]
                   )
@@ -47565,79 +47354,47 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.operations, function(operation) {
                   return _c("tr", { attrs: { slot: "tbody" }, slot: "tbody" }, [
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(operation.id))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(operation.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(operation.name))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass: "col-xs-2",
-                        staticStyle: { "text-align": "center" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-primary is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Liste des marchés"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.showOperation(operation)
-                              }
-                            }
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-link is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Modifier la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-eye" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-link is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Modifier la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.editOperation(operation)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.editOperation(operation)
                             }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-danger is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Supprimer la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-edit" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-danger is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Supprimer la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.destroyOperation(operation)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.destroyOperation(operation)
                             }
-                          },
-                          [_c("i", { staticClass: "fa fa-trash" })]
-                        )
-                      ]
-                    )
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      )
+                    ])
                   ])
                 })
               ],
@@ -48789,7 +48546,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "column" },
+            { staticClass: "column is-11" },
             [_c("br"), _c("br"), _vm._v(" "), _c("router-view")],
             1
           )
@@ -48950,101 +48707,60 @@ var render = function() {
               "part-lists-table-add",
               [
                 _c("tr", { attrs: { slot: "thead" }, slot: "thead" }, [
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("#ID")]),
+                  _c("th", { attrs: { width: "50" } }, [_vm._v("Nom")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Nom")]),
+                  _c("th", [_vm._v("Note")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Note")]),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticClass: "col-xs-2",
-                      staticStyle: { "text-align": "center" }
-                    },
-                    [_vm._v("Action")]
-                  )
+                  _c("th", { staticStyle: { "text-align": "center" } }, [
+                    _vm._v("Action")
+                  ])
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.responsables, function(responsable) {
                   return _c("tr", { attrs: { slot: "tbody" }, slot: "tbody" }, [
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(responsable.id))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(responsable.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(responsable.name))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(responsable.note))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(responsable.note))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass: "col-xs-2",
-                        staticStyle: { "text-align": "center" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-primary is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Liste des marchés"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.showResponsable(responsable)
-                              }
-                            }
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-link is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Modifier la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-eye" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-link is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Modifier la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.editResponsable(responsable)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.editResponsable(responsable)
                             }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-danger is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Supprimer la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-edit" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-danger is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Supprimer la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.destroyResponsable(responsable)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.destroyResponsable(responsable)
                             }
-                          },
-                          [_c("i", { staticClass: "fa fa-trash" })]
-                        )
-                      ]
-                    )
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      )
+                    ])
                   ])
                 })
               ],
@@ -49821,7 +49537,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "column" },
+            { staticClass: "column is-11" },
             [_c("br"), _c("br"), _vm._v(" "), _c("router-view")],
             1
           )
@@ -49990,109 +49706,64 @@ var render = function() {
               "part-lists-table-add",
               [
                 _c("tr", { attrs: { slot: "thead" }, slot: "thead" }, [
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("#ID")]),
+                  _c("th", { attrs: { width: "50" } }, [_vm._v("Nom")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Nom")]),
+                  _c("th", [_vm._v("Solde")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Solde")]),
+                  _c("th", [_vm._v("Date de création")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [
-                    _vm._v("Date de création")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticClass: "col-xs-2",
-                      staticStyle: { "text-align": "center" }
-                    },
-                    [_vm._v("Action")]
-                  )
+                  _c("th", { staticStyle: { "text-align": "center" } }, [
+                    _vm._v("Action")
+                  ])
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.societes, function(societe) {
                   return _c("tr", { attrs: { slot: "tbody" }, slot: "tbody" }, [
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(societe.id))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(societe.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(societe.name))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(societe.solde))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(societe.solde))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(societe.created_at))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(societe.created_at))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass: "col-xs-2",
-                        staticStyle: { "text-align": "center" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-primary is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Liste des marchés"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.showMarches(societe)
-                              }
-                            }
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-link is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Modifier la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-eye" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-link is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Modifier la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.editSociete(societe)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.editSociete(societe)
                             }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-danger is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Supprimer la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-edit" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-danger is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Supprimer la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.destroySociete(societe)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.destroySociete(societe)
                             }
-                          },
-                          [_c("i", { staticClass: "fa fa-trash" })]
-                        )
-                      ]
-                    )
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      )
+                    ])
                   ])
                 })
               ],
@@ -50869,7 +50540,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "column" },
+            { staticClass: "column is-11" },
             [_c("br"), _c("br"), _vm._v(" "), _c("router-view")],
             1
           )
@@ -51038,127 +50709,76 @@ var render = function() {
               "part-lists-table-add",
               [
                 _c("tr", { attrs: { slot: "thead" }, slot: "thead" }, [
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("#ID")]),
+                  _c("th", { attrs: { width: "50" } }, [_vm._v("Nom")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Nom")]),
+                  _c("th", [_vm._v("Date début")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Date début")]),
+                  _c("th", [_vm._v("Délais")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Délais")]),
+                  _c("th", [_vm._v("Numéro")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Numéro")]),
+                  _c("th", [_vm._v("Montant total")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [
-                    _vm._v("Montant total")
-                  ]),
+                  _c("th", [_vm._v("Société")]),
                   _vm._v(" "),
-                  _c("th", { staticClass: "col-xs-2" }, [_vm._v("Société")]),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticClass: "col-xs-2",
-                      staticStyle: { "text-align": "center" }
-                    },
-                    [_vm._v("Action")]
-                  )
+                  _c("th", { staticStyle: { "text-align": "center" } }, [
+                    _vm._v("Action")
+                  ])
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.marches, function(marche) {
                   return _c("tr", { attrs: { slot: "tbody" }, slot: "tbody" }, [
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(marche.id))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(marche.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(marche.name))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(marche.dateDebut))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(marche.dateDebut))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(marche.delais))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(marche.delais))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(marche.numero))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(marche.numero))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(marche.montant))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(marche.montant))
-                    ]),
+                    _c("td", [_vm._v(_vm._s(marche.societe.name))]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(marche.societe.name))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      {
-                        staticClass: "col-xs-2",
-                        staticStyle: { "text-align": "center" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-primary is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Liste des marchés"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.showMarche(marche)
-                              }
-                            }
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-link is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Modifier la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-eye" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-link is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Modifier la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.editMarche(marche)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.editMarche(marche)
                             }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-danger is-outlined",
+                          attrs: {
+                            "data-skin": "dark",
+                            "data-toggle": "m-tooltip",
+                            title: "",
+                            "data-original-title": "Supprimer la societe"
                           },
-                          [_c("i", { staticClass: "fa fa-edit" })]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "button is-danger is-outlined",
-                            attrs: {
-                              "data-skin": "dark",
-                              "data-toggle": "m-tooltip",
-                              title: "",
-                              "data-original-title": "Supprimer la societe"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.destroyMarche(marche)
-                              }
+                          on: {
+                            click: function($event) {
+                              _vm.destroyMarche(marche)
                             }
-                          },
-                          [_c("i", { staticClass: "fa fa-trash" })]
-                        )
-                      ]
-                    )
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      )
+                    ])
                   ])
                 })
               ],

@@ -5,27 +5,27 @@
         <div slot="body">
           <part-lists-table-add>
             <tr slot="thead">
-              <th class="col-xs-2">#ID</th>
-              <th class="col-xs-2">Désignation</th>
-              <th class="col-xs-2">Date</th>
-              <th class="col-xs-2">Montant</th>
-              <th class="col-xs-2">Type charge</th>
-              <th class="col-xs-2">Responsable</th>
-              <th class="col-xs-2">Marché</th>
-              <th class="col-xs-2">Société</th>
-              <th class="col-xs-2" style="text-align: center;">Action</th>
+              <!-- <th>#ID</th> -->
+              <th width="12%">Date</th>
+              <th width="30%">Désignation</th>
+              <th>Montant</th>
+              <th>Type charge</th>
+              <th>Responsable</th>
+              <th>Marché</th>
+              <th>Société</th>
+              <th width="10%" style="text-align: center;">Action</th>
             </tr>
             <tr slot="tbody" v-for="charge in charges">
-              <td class="col-xs-2">{{ charge.id }}</td>
-              <td class="col-xs-2">{{ charge.designation }}</td>
-              <td class="col-xs-2">{{ charge.date }}</td>
-              <td class="col-xs-2">{{ charge.montant }}</td>
-              <td class="col-xs-2">{{ charge.typecharge.name }}</td>
-              <td class="col-xs-2">{{ charge.responsable.name }}</td>
-              <td class="col-xs-2">{{ charge.marche.name }}</td>
-              <td class="col-xs-2">{{ charge.societe.name }}</td>
-              <td class="col-xs-2" style="text-align: center;">
-                  <button class="button is-primary is-outlined" @click="showCharge(charge)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button>
+              <!-- <td>{{ charge.id }}</td> -->
+              <td>{{ charge.date }}</td>
+              <td>{{ charge.designation }}</td>
+              <td>{{ charge.montant }}</td>
+              <td>{{ charge.typecharge.name }}</td>
+              <td>{{ charge.responsable.name }}</td>
+              <td>{{ charge.marche.name }}</td>
+              <td>{{ charge.societe.name }}</td>
+              <td style="text-align: center;">
+                  <!-- <button class="button is-primary is-outlined" @click="showCharge(charge)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button> -->
                   <button class="button is-link is-outlined" @click="editCharge(charge)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>
                   <button  @click="destroyCharge(charge)" class="button is-danger is-outlined" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Supprimer la societe">
                     <i class="fa fa-trash"></i>

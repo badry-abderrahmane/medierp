@@ -1,13 +1,13 @@
 <template lang="html">
   <div>
-    <div class="row">
-      <div class="col-md-12">
+    <div class="columns">
+      <div class="column">
         <slot name="filter"></slot>
       </div>
     </div><br>
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table is-bordered" id="tableAdd">
+    <div class="columns">
+        <div class="column">
+            <table class="table is-bordered is-narrow is-fullwidth" id="tableAdd">
                 <thead><slot name="thead"></slot></thead>
                 <tbody><slot name="tbody"></slot></tbody>
             </table>

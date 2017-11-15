@@ -5,15 +5,15 @@
         <div slot="body">
           <part-lists-table-add>
             <tr slot="thead">
-              <th class="col-xs-2">#ID</th>
-              <th class="col-xs-2">Nom</th>
-              <th class="col-xs-2" style="text-align: center;">Action</th>
+              <!-- <th>#ID</th> -->
+              <th>Nom</th>
+              <th width="20%" style="text-align: center;">Action</th>
             </tr>
             <tr slot="tbody" v-for="typecharge in typecharges">
-              <td class="col-xs-2">{{ typecharge.id }}</td>
-              <td class="col-xs-2">{{ typecharge.name }}</td>
-              <td class="col-xs-2" style="text-align: center;">
-                  <button class="button is-primary is-outlined" @click="showTypecharge(typecharge)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button>
+              <!-- <td>{{ typecharge.id }}</td> -->
+              <td>{{ typecharge.name }}</td>
+              <td style="text-align: center;">
+                  <!-- <button class="button is-primary is-outlined" @click="showTypecharge(typecharge)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button> -->
                   <button class="button is-link is-outlined" @click="editTypecharge(typecharge)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>
                   <button  @click="destroyTypecharge(typecharge)" class="button is-danger is-outlined" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Supprimer la societe">
                     <i class="fa fa-trash"></i>

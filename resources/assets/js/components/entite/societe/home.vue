@@ -20,7 +20,7 @@
             </div>
           </part-panel>
         </div>
-        <div class="column"><br><br>
+        <div class="column is-11"><br><br>
           <router-view></router-view>
         </div>
       </div>

@@ -5,25 +5,25 @@
         <div slot="body">
           <part-lists-table-add>
             <tr slot="thead">
-              <th class="col-xs-2">#ID</th>
-              <th class="col-xs-2">Nom</th>
-              <th class="col-xs-2">Date début</th>
-              <th class="col-xs-2">Délais</th>
-              <th class="col-xs-2">Numéro</th>
-              <th class="col-xs-2">Montant total</th>
-              <th class="col-xs-2">Société</th>
-              <th class="col-xs-2" style="text-align: center;">Action</th>
+              <!-- <th>#ID</th> -->
+              <th width="50">Nom</th>
+              <th>Date début</th>
+              <th>Délais</th>
+              <th>Numéro</th>
+              <th>Montant total</th>
+              <th>Société</th>
+              <th style="text-align: center;">Action</th>
             </tr>
             <tr slot="tbody" v-for="marche in marches">
-              <td class="col-xs-2">{{ marche.id }}</td>
-              <td class="col-xs-2">{{ marche.name }}</td>
-              <td class="col-xs-2">{{ marche.dateDebut }}</td>
-              <td class="col-xs-2">{{ marche.delais }}</td>
-              <td class="col-xs-2">{{ marche.numero }}</td>
-              <td class="col-xs-2">{{ marche.montant }}</td>
-              <td class="col-xs-2">{{ marche.societe.name }}</td>
-              <td class="col-xs-2" style="text-align: center;">
-                  <button class="button is-primary is-outlined" @click="showMarche(marche)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button>
+              <!-- <td>{{ marche.id }}</td> -->
+              <td>{{ marche.name }}</td>
+              <td>{{ marche.dateDebut }}</td>
+              <td>{{ marche.delais }}</td>
+              <td>{{ marche.numero }}</td>
+              <td>{{ marche.montant }}</td>
+              <td>{{ marche.societe.name }}</td>
+              <td style="text-align: center;">
+                  <!-- <button class="button is-primary is-outlined" @click="showMarche(marche)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button> -->
                   <button class="button is-link is-outlined" @click="editMarche(marche)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>
                   <button  @click="destroyMarche(marche)" class="button is-danger is-outlined" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Supprimer la societe">
                     <i class="fa fa-trash"></i>
