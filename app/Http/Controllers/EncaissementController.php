@@ -17,6 +17,7 @@ class EncaissementController extends Controller
     public function index()
     {
         $encaissements = Encaissement::all();
+        $encaissements->filter->marche;
         return $encaissements->toJson();
     }
 
@@ -51,6 +52,7 @@ class EncaissementController extends Controller
     public function show(Encaissement $encaissement)
     {
         $encaissement = Encaissement::findOrfail($encaissement)->first();
+        $encaissement->marche;
         return Response::json($encaissement, 200);
     }
 

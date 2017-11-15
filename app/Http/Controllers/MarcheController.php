@@ -17,6 +17,7 @@ class MarcheController extends Controller
     public function index()
     {
         $marches = Marche::all();
+        $marches->filter->societe;
         return $marches->toJson();
     }
 
@@ -51,6 +52,7 @@ class MarcheController extends Controller
     public function show(Marche $marche)
     {
         $marche = Marche::findOrfail($marche)->first();
+        $marche->societe;
         return Response::json($marche, 200);
     }
 

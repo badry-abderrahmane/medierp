@@ -17,7 +17,7 @@
               <td class="col-xs-2">{{ encaissement.designation }}</td>
               <td class="col-xs-2">{{ encaissement.date }}</td>
               <td class="col-xs-2">{{ encaissement.montant }}</td>
-              <td class="col-xs-2">{{ encaissement.marche_id }}</td>
+              <td class="col-xs-2">{{ encaissement.marche.name }}</td>
               <td class="col-xs-2" style="text-align: center;">
                   <button class="button is-primary is-outlined" @click="showEncaissement(encaissement)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button>
                   <button class="button is-link is-outlined" @click="editEncaissement(encaissement)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>

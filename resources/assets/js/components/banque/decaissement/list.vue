@@ -18,10 +18,10 @@
               <td class="col-xs-2">{{ decaissement.id }}</td>
               <td class="col-xs-2">{{ decaissement.designation }}</td>
               <td class="col-xs-2">{{ decaissement.date }}</td>
-              <td class="col-xs-2">{{ decaissement.operation_id }}</td>
+              <td class="col-xs-2">{{ decaissement.operation.name }}</td>
               <td class="col-xs-2">{{ decaissement.code }}</td>
               <td class="col-xs-2">{{ decaissement.montant }}</td>
-              <td class="col-xs-2">{{ decaissement.marche_id }}</td>
+              <td class="col-xs-2">{{ decaissement.marche.name }}</td>
               <td class="col-xs-2" style="text-align: center;">
                   <button class="button is-primary is-outlined" @click="showDecaissement(decaissement)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button>
                   <button class="button is-link is-outlined" @click="editDecaissement(decaissement)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>

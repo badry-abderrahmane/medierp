@@ -41741,19 +41741,19 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.typecharge_id))
+                      _vm._v(_vm._s(charge.typecharge.name))
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.responsable_id))
+                      _vm._v(_vm._s(charge.responsable.name))
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.marche_id))
+                      _vm._v(_vm._s(charge.marche.name))
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(charge.societe_id))
+                      _vm._v(_vm._s(charge.societe.name))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -42952,7 +42952,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(alimentation.responsable_id))
+                      _vm._v(_vm._s(alimentation.responsable.name))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -45410,7 +45410,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(encaissement.marche_id))
+                      _vm._v(_vm._s(encaissement.marche.name))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -46491,7 +46491,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(decaissement.operation_id))
+                      _vm._v(_vm._s(decaissement.operation.name))
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "col-xs-2" }, [
@@ -46503,7 +46503,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(decaissement.marche_id))
+                      _vm._v(_vm._s(decaissement.marche.name))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -51091,7 +51091,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "col-xs-2" }, [
-                      _vm._v(_vm._s(marche.societe_id))
+                      _vm._v(_vm._s(marche.societe.name))
                     ]),
                     _vm._v(" "),
                     _c(

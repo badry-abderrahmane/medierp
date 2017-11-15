@@ -17,6 +17,7 @@ class AlimentationController extends Controller
     public function index()
     {
       $alimentations = Alimentation::all();
+      $alimentations->filter->responsable;
       return $alimentations->toJson();
     }
 
@@ -51,6 +52,7 @@ class AlimentationController extends Controller
     public function show(Alimentation $alimentation)
     {
         $alimentation = Alimentation::findOrfail($alimentation)->first();
+        $alimentation->responsable;
         return Response::json($alimentation, 200);
     }
 

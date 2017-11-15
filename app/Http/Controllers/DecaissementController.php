@@ -17,6 +17,8 @@ class DecaissementController extends Controller
     public function index()
     {
         $decaissements = Decaissement::all();
+        $decaissements->filter->operation;
+        $decaissements->filter->marche;
         return $decaissements->toJson();
     }
 
@@ -51,6 +53,8 @@ class DecaissementController extends Controller
     public function show(Decaissement $decaissement)
     {
         $decaissement = Decaissement::findOrfail($decaissement)->first();
+        $decaissement->operation;
+        $decaissement->marche;
         return Response::json($decaissement, 200);
     }
 

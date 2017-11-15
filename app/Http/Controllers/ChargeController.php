@@ -17,7 +17,11 @@ class ChargeController extends Controller
     public function index()
     {
         $charges = Charge::all();
-        return $charges->toJson();
+        $charges->filter->societe;
+        $charges->filter->marche;
+        $charges->filter->responsable;
+        $charges->filter->typecharge;
+        return $charges;
     }
 
     /**
@@ -51,6 +55,10 @@ class ChargeController extends Controller
     public function show(Charge $charge)
     {
         $charge = Charge::findOrfail($charge)->first();
+        $charge->societe;
+        $charge->marche;
+        $charge->responsable;
+        $charge->typecharge;
         return Response::json($charge, 200);
     }
 

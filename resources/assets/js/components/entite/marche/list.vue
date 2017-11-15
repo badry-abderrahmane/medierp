@@ -21,7 +21,7 @@
               <td class="col-xs-2">{{ marche.delais }}</td>
               <td class="col-xs-2">{{ marche.numero }}</td>
               <td class="col-xs-2">{{ marche.montant }}</td>
-              <td class="col-xs-2">{{ marche.societe_id }}</td>
+              <td class="col-xs-2">{{ marche.societe.name }}</td>
               <td class="col-xs-2" style="text-align: center;">
                   <button class="button is-primary is-outlined" @click="showMarche(marche)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button>
                   <button class="button is-link is-outlined" @click="editMarche(marche)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>
