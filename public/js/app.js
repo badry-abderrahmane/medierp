@@ -812,7 +812,7 @@ var Form = function () {
     for (var field in data) {
       this[field] = data[field];
     }
-    this.errors = new __WEBPACK_IMPORTED_MODULE_0__api_errors_js__["a" /* Errors */]();
+    this.errors = '';
   }
 
   /**
@@ -2433,6 +2433,7 @@ var app = new Vue({
       color: 'primary',
 
       /** Shared objects **/
+      months: [{ id: "1", text: "01" }, { id: "2", text: "02" }, { id: "3", text: "03" }, { id: "4", text: "04" }, { id: "5", text: "05" }, { id: "6", text: "06" }, { id: "7", text: "07" }, { id: "8", text: "08" }, { id: "9", text: "09" }, { id: "10", text: "10" }, { id: "11", text: "11" }, { id: "12", text: "12" }],
       responsables: '',
       societes: '',
       marches: '',
@@ -40729,7 +40730,11 @@ module.exports = {
     children: [{ path: '', component: __webpack_require__(301) }, { path: 'add', component: __webpack_require__(22) }, { path: 'edit/:id', component: __webpack_require__(22) }, { path: 'delete/:id', component: __webpack_require__(308) }]
   }, { path: '/entite/marche', component: __webpack_require__(313),
     children: [{ path: '', component: __webpack_require__(318) }, { path: 'add', component: __webpack_require__(23) }, { path: 'edit/:id', component: __webpack_require__(23) }, { path: 'delete/:id', component: __webpack_require__(325) }]
-  }]
+  },
+  //**
+  //** Inventaire routes
+  //**
+  { path: '/inventaire/charges', component: __webpack_require__(355) }]
 };
 
 /***/ }),
@@ -51378,6 +51383,666 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(356)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(358)
+/* template */
+var __vue_template__ = __webpack_require__(359)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\inventaire\\charges.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2f99f4a2", Component.options)
+  } else {
+    hotAPI.reload("data-v-2f99f4a2", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 356 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(357);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("d507201a", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2f99f4a2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./charges.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2f99f4a2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./charges.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 357 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 358 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_formNoReset_js__ = __webpack_require__(360);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      totalCharges: 10,
+      charges: '',
+      form: new __WEBPACK_IMPORTED_MODULE_0__api_formNoReset_js__["a" /* Form */]({
+        date: '',
+        typecharge_id: '',
+        marche_id: '',
+        responsable_id: '',
+        societe_id: ''
+      })
+    };
+  },
+  created: function created() {
+    this.getCharges();
+  },
+
+  methods: {
+    onSubmit: function onSubmit() {
+      var _this = this;
+
+      this.charges = '';
+      this.form.post('/invo').then(function (data) {
+        console.log(data);
+        _this.charges = data;
+        Vue.nextTick(function () {
+          Event.$emit('init-datatable', 'tableAdd');
+        });
+      }).catch(function (errors) {
+        console.log(errors);
+      });
+    },
+    getCharges: function getCharges() {
+      var _this2 = this;
+
+      axios.get('/charges').then(function (response) {
+        _this2.charges = response.data;
+        // Vue.nextTick(function () {
+        //   Event.$emit('init-datatable', 'tableAdd');
+        // })
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 359 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("global-pagetitle", {
+        attrs: {
+          color: this.$root.color,
+          title: "Inventaire des charges",
+          subtitle: "Charges et alimentations",
+          icon: "shield"
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "columns" }, [
+          _c(
+            "div",
+            { staticClass: "column is-3" },
+            [
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("part-panel", [
+                _c("div", { attrs: { slot: "heading" }, slot: "heading" }, [
+                  _vm._v("Recherche et classification")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { attrs: { slot: "body" }, slot: "body" },
+                  [
+                    _c(
+                      "form",
+                      {
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            _vm.onSubmit($event)
+                          }
+                        }
+                      },
+                      [
+                        _c("part-forms-select-full", {
+                          attrs: {
+                            list: _vm.$root.months,
+                            name: "date",
+                            label: "Mois",
+                            help: ""
+                          },
+                          model: {
+                            value: _vm.form,
+                            callback: function($$v) {
+                              _vm.form = $$v
+                            },
+                            expression: "form"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("part-forms-select-full", {
+                          attrs: {
+                            list: _vm.$root.typecharges,
+                            name: "typecharge_id",
+                            label: "Type",
+                            help: ""
+                          },
+                          model: {
+                            value: _vm.form,
+                            callback: function($$v) {
+                              _vm.form = $$v
+                            },
+                            expression: "form"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("part-forms-select-full", {
+                          attrs: {
+                            list: _vm.$root.responsables,
+                            name: "responsable_id",
+                            label: "Responsable",
+                            help: ""
+                          },
+                          model: {
+                            value: _vm.form,
+                            callback: function($$v) {
+                              _vm.form = $$v
+                            },
+                            expression: "form"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("part-forms-select-full", {
+                          attrs: {
+                            list: _vm.$root.marches,
+                            name: "marche_id",
+                            label: "Marché",
+                            help: ""
+                          },
+                          model: {
+                            value: _vm.form,
+                            callback: function($$v) {
+                              _vm.form = $$v
+                            },
+                            expression: "form"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("part-forms-select-full", {
+                          attrs: {
+                            list: _vm.$root.societes,
+                            name: "societe_id",
+                            label: "Société",
+                            help: ""
+                          },
+                          model: {
+                            value: _vm.form,
+                            callback: function($$v) {
+                              _vm.form = $$v
+                            },
+                            expression: "form"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "column is-11" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "button is-primary is-fullwidth",
+                              attrs: { type: "submit" }
+                            },
+                            [
+                              _c("i", { staticClass: "fa fa-search" }),
+                              _vm._v("  Recherche")
+                            ]
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c("center", [
+                      _c("p", { staticClass: "title is-6" }, [
+                        _vm._v("Nombre totale des charges :")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "tag is-primary is-medium" }, [
+                        _vm._v(_vm._s(_vm.totalCharges))
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "column is-11" },
+            [
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "part-lists-table-add",
+                [
+                  _c("tr", { attrs: { slot: "thead" }, slot: "thead" }, [
+                    _c("th", { attrs: { width: "12%" } }, [_vm._v("Date")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { width: "30%" } }, [
+                      _vm._v("Désignation")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Montant")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Type charge")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Responsable")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Marché")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Société")]),
+                    _vm._v(" "),
+                    _c(
+                      "th",
+                      {
+                        staticStyle: { "text-align": "center" },
+                        attrs: { width: "10%" }
+                      },
+                      [_vm._v("Action")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.charges, function(charge) {
+                    return _c(
+                      "tr",
+                      { attrs: { slot: "tbody" }, slot: "tbody" },
+                      [
+                        _c("td", [_vm._v(_vm._s(charge.date))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(charge.designation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(charge.montant))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(charge.typecharge.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(charge.responsable.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(charge.marche.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(charge.societe.name))]),
+                        _vm._v(" "),
+                        _c("td", { staticStyle: { "text-align": "center" } }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "button is-link is-outlined",
+                              attrs: {
+                                "data-skin": "dark",
+                                "data-toggle": "m-tooltip",
+                                title: "",
+                                "data-original-title": "Modifier la societe"
+                              },
+                              on: {
+                                click: function($event) {
+                                  _vm.editCharge(charge)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-edit" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "button is-danger is-outlined",
+                              attrs: {
+                                "data-skin": "dark",
+                                "data-toggle": "m-tooltip",
+                                title: "",
+                                "data-original-title": "Supprimer la societe"
+                              },
+                              on: {
+                                click: function($event) {
+                                  _vm.destroyCharge(charge)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-trash" })]
+                          )
+                        ])
+                      ]
+                    )
+                  })
+                ],
+                2
+              )
+            ],
+            1
+          )
+        ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2f99f4a2", module.exports)
+  }
+}
+
+/***/ }),
+/* 360 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Form; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_errors_js__ = __webpack_require__(177);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var Form = function () {
+
+  /**
+  // Start an  instance of form
+  // and store given data
+  // @param: data
+  **/
+  function Form(data) {
+    _classCallCheck(this, Form);
+
+    this.originalData = data;
+    for (var field in data) {
+      this[field] = data[field];
+    }
+    this.errors = new __WEBPACK_IMPORTED_MODULE_0__api_errors_js__["a" /* Errors */]();
+  }
+
+  /**
+  // get the form data
+  //
+  **/
+
+
+  _createClass(Form, [{
+    key: 'data',
+    value: function data() {
+      var data = {};
+      for (var property in this.originalData) {
+        data[property] = this[property];
+      }
+
+      return data;
+    }
+  }, {
+    key: 'load',
+    value: function load(data) {
+      for (var property in this.originalData) {
+        this[property] = data[property];
+      }
+    }
+    /**
+    // Reset form elements and clear form errors
+    //
+    **/
+
+  }, {
+    key: 'reset',
+    value: function reset() {
+      for (var field in this.originalData) {
+        this[field] = '';
+      }
+      this.errors.clear();
+    }
+
+    /**
+    // post to url
+    // @param: url
+    **/
+
+  }, {
+    key: 'post',
+    value: function post(url) {
+      return this.submit('post', url);
+    }
+
+    /**
+    // put to url
+    // @param: url
+    **/
+
+  }, {
+    key: 'put',
+    value: function put(url) {
+      return this.submit('put', url + '/' + this.id);
+    }
+
+    /**
+    // Submit the form return a promise
+    // @param: requestType
+    // @param: url
+    **/
+
+  }, {
+    key: 'submit',
+    value: function submit(requestType, url) {
+      var _this = this;
+
+      return new Promise(function (resolve, reject) {
+        axios[requestType](url, _this.data()).then(function (response) {
+          _this.onSuccess(response.data);
+          resolve(response.data);
+        }).catch(function (error) {
+          _this.onFail(error.response.data.errors);
+          reject(error.response.data);
+        });
+      });
+    }
+
+    /**
+    // After submiting and on success return data
+    // @param: data
+    **/
+
+  }, {
+    key: 'onSuccess',
+    value: function onSuccess(data) {}
+    //this.reset();
+
+
+    /**
+    // After submiting and on fail return errors
+    // @param: field
+    **/
+
+  }, {
+    key: 'onFail',
+    value: function onFail(errors) {
+      this.errors.record(errors);
+    }
+  }]);
+
+  return Form;
+}();
 
 /***/ })
 /******/ ]);

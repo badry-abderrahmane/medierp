@@ -13,7 +13,7 @@ export class Form{
         for (let field in data) {
           this[field] = data[field];
         }
-        this.errors = '';
+        this.errors = new Errors();
       }
 
       /**
@@ -86,7 +86,7 @@ export class Form{
       // @param: data
       **/
       onSuccess(data){
-        this.reset();
+        //this.reset();
       }
 
       /**

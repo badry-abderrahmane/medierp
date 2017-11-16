@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/invo', 'InventaireController@getCharges');
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +19,7 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('test');
 });
+
 
 Route::resource('charges', 'ChargeController');
 Route::resource('alimentations', 'AlimentationController');

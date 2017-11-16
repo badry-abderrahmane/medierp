@@ -85,5 +85,9 @@ module.exports = {
           { path: 'delete/:id', component: require('./components/entite/marche/delete.vue') }
         ]
       },
+      //**
+      //** Inventaire routes
+      //**
+      { path: '/inventaire/charges', component: require('./components/inventaire/charges.vue')},
   ]
 };

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ChargeRequest;
 use Illuminate\Support\Facades\Response;
 
+use App\Http\Relay\LogicRelay;
+
 class ChargeController extends Controller
 {
     /**
