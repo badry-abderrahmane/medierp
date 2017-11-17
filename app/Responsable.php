@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Responsable extends Model
 {
     protected $fillable = [
-      'name', 'note'
+      'name', 'note','lastName','phone','adresse','cin'
     ];
 
     public function charges(){

@@ -5,8 +5,12 @@
         <div slot="heading">Formulaire de responsable</div>
         <div slot="body">
           <form v-on:submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
-            <div class="columns is-centered">
-                <part-forms-input v-model="form" name="name" label="Nom" help="Spécifier un nom du responsable"></part-forms-input>
+            <div class="columns is-multiline">
+                <part-forms-input v-model="form" name="name" label="Nom" help="Spécifier un nom "></part-forms-input>
+                <part-forms-input v-model="form" name="lastName" label="Prénom" help="Spécifier un prénom"></part-forms-input>
+                <part-forms-input v-model="form" name="phone" label="Numéro telephone" help="Spécifier un numéro telephone"></part-forms-input>
+                <part-forms-input v-model="form" name="adresse" label="Adresse" help="Spécifier une adresse"></part-forms-input>
+                <part-forms-input v-model="form" name="cin" label="CIN" help="Spécifier un numéro d'identité national"></part-forms-input>
                 <part-forms-input v-model="form" name="note" label="Note" help="Spécifier une note à propos du responsable"></part-forms-input>
             </div>
             <div class="columns is-centered">
@@ -29,6 +33,10 @@
             form : new Form({
               id:'',
               name: '',
+              lastName: '',
+              phone: '',
+              adresse: '',
+              cin: '',
               note: '',
             }),
           }

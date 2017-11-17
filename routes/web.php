@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/invo', 'InventaireController@getCharges');
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +30,20 @@ Route::resource('responsables', 'ResponsableController');
 Route::resource('societes', 'SocieteController');
 Route::resource('marches', 'MarcheController');
 Route::resource('typecharges', 'TypechargeController');
+
+
+/**
+** Inventaires Routes
+**
+**/
+Route::group(['prefix' => 'inventaire'], function()
+{
+    Route::post('charges', 'InventaireController@getCharges');
+    Route::post('alimentations', 'InventaireController@getAlimentations');
+    Route::post('encaissements', 'InventaireController@getEncaissements');
+    Route::post('decaissements', 'InventaireController@getDecaissements');
+});
+
 
 /**
 ** Get Lists

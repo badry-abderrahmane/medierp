@@ -6,13 +6,21 @@
           <part-lists-table-add>
             <tr slot="thead">
               <!-- <th>#ID</th> -->
-              <th width="50">Nom</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Numéro tel</th>
+              <th>Adresse</th>
+              <th>CIN</th>
               <th>Note</th>
               <th style="text-align: center;">Action</th>
             </tr>
             <tr slot="tbody" v-for="responsable in responsables">
               <!-- <td>{{ responsable.id }}</td> -->
               <td>{{ responsable.name }}</td>
+              <td>{{ responsable.lastName }}</td>
+              <td>{{ responsable.phone }}</td>
+              <td>{{ responsable.adresse }}</td>
+              <td>{{ responsable.cin }}</td>
               <td>{{ responsable.note }}</td>
               <td style="text-align: center;">
                   <!-- <button class="button is-primary is-outlined" @click="showResponsable(responsable)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button> -->

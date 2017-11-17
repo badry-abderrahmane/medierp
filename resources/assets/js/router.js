@@ -88,6 +88,25 @@ module.exports = {
       //**
       //** Inventaire routes
       //**
-      { path: '/inventaire/charges', component: require('./components/inventaire/charges.vue')},
+      { path: '/inventaire/charges', component: require('./components/inventaire/charges/home.vue'),
+        children: [
+          { path: 'list', component: require('./components/inventaire/charges/list.vue') },
+        ]
+      },
+      { path: '/inventaire/alimentations', component: require('./components/inventaire/alimentations/home.vue'),
+        children: [
+          { path: 'list', component: require('./components/inventaire/alimentations/list.vue') },
+        ]
+      },
+      { path: '/inventaire/encaissements', component: require('./components/inventaire/encaissements/home.vue'),
+        children: [
+          { path: 'list', component: require('./components/inventaire/encaissements/list.vue') },
+        ]
+      },
+      { path: '/inventaire/decaissements', component: require('./components/inventaire/decaissements/home.vue'),
+        children: [
+          { path: 'list', component: require('./components/inventaire/decaissements/list.vue') },
+        ]
+      },
   ]
 };

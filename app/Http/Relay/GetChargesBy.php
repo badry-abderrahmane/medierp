@@ -22,7 +22,7 @@ class GetChargesBy
       $charges = $this->societe($charges);
       $charges = $this->marche($charges);
       $charges = $this->typecharge($charges);
-      
+
     return $charges;
     }
 

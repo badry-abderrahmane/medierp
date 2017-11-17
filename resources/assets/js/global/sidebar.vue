@@ -130,8 +130,90 @@
             </a>
           </div>
         </div>
-
-
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" @click="$router.push({ path: `/entite` })">
+            Inventaires
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item " @click="$router.push({ path: `/entite` })">
+              <p>
+                <strong>Vue d'ensemble</strong>
+                <br>
+                <small>Statistiques et liens.</small>
+              </p>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" @click="$router.push({ path: `/inventaire/charges` })">
+              <p>
+                <strong>Inventaire des charges</strong>
+                <br>
+                <small>Recherche et classifications.</small>
+              </p>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" @click="$router.push({ path: `/inventaire/alimentations` })">
+              <p>
+                <strong>Inventaire des alimentations</strong>
+                <br>
+                <small>Recherche et classifications.</small>
+              </p>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" @click="$router.push({ path: `/inventaire/encaissements` })">
+              <p>
+                <strong>Inventaire des encaissements</strong>
+                <br>
+                <small>Recherche et classifications.</small>
+              </p>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" @click="$router.push({ path: `/inventaire/decaissements` })">
+              <p>
+                <strong>Inventaire des décaissements</strong>
+                <br>
+                <small>Recherche et classifications.</small>
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" @click="$router.push({ path: `/entite` })">
+            Combinés
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item " @click="$router.push({ path: `/entite` })">
+              <p>
+                <strong>Vue d'ensemble</strong>
+                <br>
+                <small>Statistiques et liens.</small>
+              </p>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" @click="$router.push({ path: `/entite/societe` })">
+              <p>
+                <strong>Combiné générale</strong>
+                <br>
+                <small>Recherche et classifications.</small>
+              </p>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" @click="$router.push({ path: `/entite/marche` })">
+              <p>
+                <strong>Combiné charges-alimentations</strong>
+                <br>
+                <small>Recherche et classifications.</small>
+              </p>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" @click="$router.push({ path: `/entite/responsable` })">
+              <p>
+                <strong>Combiné banque</strong>
+                <br>
+                <small>Recherche et classifications.</small>
+              </p>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="navbar-end">
