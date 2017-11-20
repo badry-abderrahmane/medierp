@@ -1,5 +1,6 @@
 <template>
   <div>
+      <div class="pageloader is-active" v-show="isLoading"></div>
       <part-panel>
         <div slot="heading">Liste des opérations</div>
         <div slot="body">
@@ -31,6 +32,7 @@
     export default {
       data(){
         return{
+          isLoading: false,
           operations:'',
         }
       },
@@ -40,21 +42,23 @@
 
       methods: {
         getOperations(){
+          this.isLoading = true;
           axios.get('/operations')
             .then(response => {
               this.operations = response.data;
               Vue.nextTick(function () {
                 Event.$emit('init-datatable', 'tableAdd');
               })
+              this.isLoading = false;
           });
         },
 
         editOperation(operation){
-          this.$router.push({ path: `operation/edit/${operation.id}` })
+          this.$router.push({ path: `/banque/operation/edit/${operation.id}` })
         },
 
         destroyOperation(operation){
-          this.$router.push({ path: `operation/delete/${operation.id}` })
+          this.$router.push({ path: `/banque/operation/delete/${operation.id}` })
         },
 
       }

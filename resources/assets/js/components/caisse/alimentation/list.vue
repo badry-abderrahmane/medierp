@@ -1,5 +1,6 @@
 <template>
   <div>
+      <div class="pageloader is-active" v-show="isLoading"></div>
       <part-panel>
         <div slot="heading">Liste des alimentations</div>
         <div slot="body">
@@ -17,7 +18,7 @@
               <td>{{ alimentation.date }}</td>
               <td>{{ alimentation.designation }}</td>
               <td>{{ alimentation.montant }}</td>
-              <td>{{ alimentation.responsable.name }}</td>
+              <td><router-link :to="'/entite/responsable/show/'+alimentation.responsable.id">{{ alimentation.responsable.name }}</router-link></td>
               <td style="text-align: center;">
                   <!-- <button class="button is-primary is-outlined" @click="showAlimentation(alimentation)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button> -->
                   <button class="button is-link is-outlined" @click="editAlimentation(alimentation)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>
@@ -37,6 +38,7 @@
     export default {
       data(){
         return{
+          isLoading: false,
           alimentations:'',
         }
       },
@@ -46,21 +48,23 @@
 
       methods: {
         getAlimentations(){
+          this.isLoading = true;
           axios.get('/alimentations')
             .then(response => {
               this.alimentations = response.data;
               Vue.nextTick(function () {
                 Event.$emit('init-datatable', 'tableAdd');
               })
+              this.isLoading = false;
           });
         },
 
         editAlimentation(alimentation){
-          this.$router.push({ path: `alimentation/edit/${alimentation.id}` })
+          this.$router.push({ path: `/caisse/alimentation/edit/${alimentation.id}` })
         },
 
         destroyAlimentation(alimentation){
-          this.$router.push({ path: `alimentation/delete/${alimentation.id}` })
+          this.$router.push({ path: `/caisse/alimentation/delete/${alimentation.id}` })
         },
 
       }

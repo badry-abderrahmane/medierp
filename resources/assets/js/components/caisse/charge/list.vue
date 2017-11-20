@@ -1,5 +1,6 @@
 <template>
   <div>
+      <div class="pageloader is-active" v-show="isLoading"></div>
       <part-panel>
         <div slot="heading">Liste des charges</div>
         <div slot="body">
@@ -21,9 +22,9 @@
               <td>{{ charge.designation }}</td>
               <td>{{ charge.montant }}</td>
               <td>{{ charge.typecharge.name }}</td>
-              <td>{{ charge.responsable.name }}</td>
-              <td>{{ charge.marche.name }}</td>
-              <td>{{ charge.societe.name }}</td>
+              <td><router-link :to="'/entite/responsable/show/'+charge.responsable.id">{{ charge.responsable.name }}</router-link></td>
+              <td><router-link :to="'/entite/marche/show/'+charge.marche.id">{{ charge.marche.name }}</router-link></td>
+              <td><router-link :to="'/entite/societe/show/'+charge.societe.id">{{ charge.societe.name }}</router-link></td>
               <td style="text-align: center;">
                   <!-- <button class="button is-primary is-outlined" @click="showCharge(charge)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button> -->
                   <button class="button is-link is-outlined" @click="editCharge(charge)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>
@@ -43,6 +44,7 @@
     export default {
       data(){
         return{
+          isLoading: false,
           charges:'',
         }
       },
@@ -52,21 +54,23 @@
 
       methods: {
         getCharges(){
+          this.isLoading = true;
           axios.get('/charges')
             .then(response => {
               this.charges = response.data;
               Vue.nextTick(function () {
                 Event.$emit('init-datatable', 'tableAdd');
               })
+              this.isLoading = false;
           });
         },
 
         editCharge(charge){
-          this.$router.push({ path: `charge/edit/${charge.id}` })
+          this.$router.push({ path: `/caisse/charge/edit/${charge.id}` })
         },
 
         destroyCharge(charge){
-          this.$router.push({ path: `charge/delete/${charge.id}` })
+          this.$router.push({ path: `/caisse/charge/delete/${charge.id}` })
         },
 
       }

@@ -1,5 +1,6 @@
 <template>
   <div>
+      <div class="pageloader is-active" v-show="isLoading"></div>
       <part-panel>
         <div slot="heading">Liste des responsables</div>
         <div slot="body">
@@ -23,7 +24,7 @@
               <td>{{ responsable.cin }}</td>
               <td>{{ responsable.note }}</td>
               <td style="text-align: center;">
-                  <!-- <button class="button is-primary is-outlined" @click="showResponsable(responsable)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button> -->
+                  <button class="button is-primary is-outlined" @click="showResponsable(responsable)"  data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Liste des marchés"><i class="fa fa-eye"></i></button>
                   <button class="button is-link is-outlined" @click="editResponsable(responsable)" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Modifier la societe"><i class="fa fa-edit"></i></button>
                   <button  @click="destroyResponsable(responsable)" class="button is-danger is-outlined" data-skin="dark" data-toggle="m-tooltip" title="" data-original-title="Supprimer la societe">
                     <i class="fa fa-trash"></i>
@@ -41,6 +42,7 @@
     export default {
       data(){
         return{
+          isLoading: false,
           responsables:'',
         }
       },
@@ -50,21 +52,27 @@
 
       methods: {
         getResponsables(){
+          this.isLoading = true;
           axios.get('/responsables')
             .then(response => {
               this.responsables = response.data;
               Vue.nextTick(function () {
                 Event.$emit('init-datatable', 'tableAdd');
               })
+              this.isLoading = false;
           });
         },
 
+        showResponsable(responsable){
+          this.$router.push({ path: `/entite/responsable/show/${responsable.id}` })
+        },
+
         editResponsable(responsable){
-          this.$router.push({ path: `responsable/edit/${responsable.id}` })
+          this.$router.push({ path: `/entite/responsable/edit/${responsable.id}` })
         },
 
         destroyResponsable(responsable){
-          this.$router.push({ path: `responsable/delete/${responsable.id}` })
+          this.$router.push({ path: `/entite/responsable/delete/${responsable.id}` })
         },
 
       }

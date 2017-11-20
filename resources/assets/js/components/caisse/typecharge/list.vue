@@ -1,5 +1,6 @@
 <template>
   <div>
+      <div class="pageloader is-active" v-show="isLoading"></div>
       <part-panel>
         <div slot="heading">Liste des type de charges</div>
         <div slot="body">
@@ -31,6 +32,7 @@
     export default {
       data(){
         return{
+          isLoading: false,
           typecharges:'',
         }
       },
@@ -40,12 +42,14 @@
 
       methods: {
         getTypecharges(){
+          this.isLoading = true;
           axios.get('/typecharges')
             .then(response => {
               this.typecharges = response.data;
               Vue.nextTick(function () {
                 Event.$emit('init-datatable', 'tableAdd');
               })
+              this.isLoading = false;
           });
         },
 

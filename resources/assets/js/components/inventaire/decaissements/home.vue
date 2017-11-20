@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <global-pagetitle :color="this.$root.color" title="Inventaire des decaissements" subtitle="Decaissements et alimentations" icon="shield"></global-pagetitle>
+    <global-pagetitle :color="this.$root.color" title="Inventaire des decaissements" subtitle="Recherche et classification" icon="shield"></global-pagetitle>
     <div class="container">
       <div class="columns">
         <div class="column is-3"><br><br>

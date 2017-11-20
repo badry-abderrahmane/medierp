@@ -131,11 +131,11 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" @click="$router.push({ path: `/entite` })">
+          <a class="navbar-link" @click="$router.push({ path: `/inventaire` })">
             Inventaires
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item " @click="$router.push({ path: `/entite` })">
+            <a class="navbar-item " @click="$router.push({ path: `/inventaire` })">
               <p>
                 <strong>Vue d'ensemble</strong>
                 <br>
@@ -177,11 +177,11 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" @click="$router.push({ path: `/entite` })">
+          <a class="navbar-link" @click="$router.push({ path: `/combine` })">
             Combinés
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item " @click="$router.push({ path: `/entite` })">
+            <a class="navbar-item " @click="$router.push({ path: `/combine` })">
               <p>
                 <strong>Vue d'ensemble</strong>
                 <br>
@@ -189,7 +189,7 @@
               </p>
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item" @click="$router.push({ path: `/entite/societe` })">
+            <a class="navbar-item" @click="$router.push({ path: `/combine/general` })">
               <p>
                 <strong>Combiné générale</strong>
                 <br>
@@ -197,15 +197,15 @@
               </p>
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item" @click="$router.push({ path: `/entite/marche` })">
+            <a class="navbar-item" @click="$router.push({ path: `/combine/caisse` })">
               <p>
-                <strong>Combiné charges-alimentations</strong>
+                <strong>Combiné caisses</strong>
                 <br>
                 <small>Recherche et classifications.</small>
               </p>
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item" @click="$router.push({ path: `/entite/responsable` })">
+            <a class="navbar-item" @click="$router.push({ path: `/combine/banque` })">
               <p>
                 <strong>Combiné banque</strong>
                 <br>

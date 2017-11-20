@@ -66,6 +66,7 @@ module.exports = {
           { path: '', component: require('./components/entite/responsable/list.vue') },
           { path: 'add', component: require('./components/entite/responsable/form.vue') },
           { path: 'edit/:id', component: require('./components/entite/responsable/form.vue') },
+          { path: 'show/:id', component: require('./components/entite/responsable/show.vue') },
           { path: 'delete/:id', component: require('./components/entite/responsable/delete.vue') }
         ]
       },
@@ -74,6 +75,7 @@ module.exports = {
           { path: '', component: require('./components/entite/societe/list.vue') },
           { path: 'add', component: require('./components/entite/societe/form.vue') },
           { path: 'edit/:id', component: require('./components/entite/societe/form.vue') },
+          { path: 'show/:id', component: require('./components/entite/societe/show.vue') },
           { path: 'delete/:id', component: require('./components/entite/societe/delete.vue') }
         ]
       },
@@ -82,12 +84,14 @@ module.exports = {
           { path: '', component: require('./components/entite/marche/list.vue') },
           { path: 'add', component: require('./components/entite/marche/form.vue') },
           { path: 'edit/:id', component: require('./components/entite/marche/form.vue') },
+          { path: 'show/:id', component: require('./components/entite/marche/show.vue') },
           { path: 'delete/:id', component: require('./components/entite/marche/delete.vue') }
         ]
       },
       //**
       //** Inventaire routes
       //**
+      { path: '/inventaire', component: require('./components/inventaire/home.vue')},
       { path: '/inventaire/charges', component: require('./components/inventaire/charges/home.vue'),
         children: [
           { path: 'list', component: require('./components/inventaire/charges/list.vue') },
@@ -106,6 +110,26 @@ module.exports = {
       { path: '/inventaire/decaissements', component: require('./components/inventaire/decaissements/home.vue'),
         children: [
           { path: 'list', component: require('./components/inventaire/decaissements/list.vue') },
+        ]
+      },
+
+      //**
+      //** Combine routes
+      //**
+      { path: '/combine', component: require('./components/combine/home.vue')},
+      { path: '/combine/general', component: require('./components/combine/general/home.vue'),
+        children: [
+          { path: 'list', component: require('./components/combine/general/list.vue') },
+        ]
+      },
+      { path: '/combine/caisse', component: require('./components/combine/caisse/home.vue'),
+        children: [
+          { path: 'list', component: require('./components/combine/caisse/list.vue') },
+        ]
+      },
+      { path: '/combine/banque', component: require('./components/combine/banque/home.vue'),
+        children: [
+          { path: 'list', component: require('./components/combine/banque/list.vue') },
         ]
       },
   ]

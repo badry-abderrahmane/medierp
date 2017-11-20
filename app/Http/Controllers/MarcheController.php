@@ -49,9 +49,9 @@ class MarcheController extends Controller
      * @param  \App\Marche  $marche
      * @return \Illuminate\Http\Response
      */
-    public function show(Marche $marche)
+    public function show($id)
     {
-        $marche = Marche::findOrfail($marche)->first();
+        $marche = Marche::findOrfail($id);
         $marche->societe;
         return Response::json($marche, 200);
     }
@@ -74,9 +74,9 @@ class MarcheController extends Controller
      * @param  \App\Marche  $marche
      * @return \Illuminate\Http\Response
      */
-    public function update(MarcheRequest $request, Marche $marche)
+    public function update(MarcheRequest $request, $id)
     {
-        $marche = Marche::findOrfail($marche)->first();
+        $marche = Marche::findOrfail($id);
         $marche->update($request->toArray());
         return Response::json(['message' => 'Marche bien mis à jour'], 200);
     }

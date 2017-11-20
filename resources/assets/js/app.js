@@ -9,6 +9,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import VueRouter from 'vue-router';
+
 Vue.use(VueRouter);
 
 require('./global');
@@ -44,7 +45,7 @@ const app = new Vue({
       this.getTypecharges();
       this.getOperations();
 
-
+      //** Toastr Messages trigger functions with message
       Event.$on('publish-success-message', (message) => {
         this.toastrSuccess(message);
       });
@@ -61,7 +62,6 @@ const app = new Vue({
     mounted(){
       this.$nextTick(function () {
         // entire view has been rendered
-
         this.loadTooltips();
       })
 

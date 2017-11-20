@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <part-panel>
-      <div slot="heading">Inventaire des Encaissements</div>
+      <div slot="heading">Inventaire des encaissements</div>
       <div slot="body">
         <part-lists-table-add>
           <tr slot="thead">
