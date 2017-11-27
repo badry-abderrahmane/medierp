@@ -44,6 +44,16 @@ Route::group(['prefix' => 'inventaire'], function()
     Route::post('decaissements', 'InventaireController@getDecaissements');
 });
 
+/**
+** Combines Routes
+**
+**/
+Route::group(['prefix' => 'combine'], function()
+{
+    Route::post('caisse', 'CombineController@getCaisse');
+    Route::post('banque', 'CombineController@getBanque');
+});
+
 
 /**
 ** Get Lists
@@ -78,7 +88,7 @@ Route::get('totale/decaissements', function(){
   return $total;
 });
 Route::get('totale/encaissements', function(){
-  $total = \App\Encaissements::count();
+  $total = \App\Encaissement::count();
   return $total;
 });
 Route::get('totale/operations', function(){

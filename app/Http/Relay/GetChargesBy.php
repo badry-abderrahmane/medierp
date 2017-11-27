@@ -3,11 +3,13 @@
 namespace App\Http\Relay;
 
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class GetChargesBy
 {
     public function prepareQuery($intances){
       $query = DB::table('charges');
+
       foreach ($intances as $key => $instance) {
         if ($instance['value']) {
           if ($instance['name'] != 'date') {
@@ -24,6 +26,28 @@ class GetChargesBy
       $charges = $this->typecharge($charges);
 
     return $charges;
+    }
+
+    public function historySumMontant($intances,$date){
+      $query = DB::table('charges');
+
+      foreach ($intances as $key => $instance) {
+        if ($instance['value']) {
+          if ($instance['name'] != 'date') {
+            $query->where($instance["name"], $instance["value"]);
+          }
+        }
+      }
+
+      $startDate = new Carbon('first day of January');
+      $date      = new Carbon($date);
+
+      $date->endOfDay()->subDay();
+      $query->whereBetween('date',array($startDate->toDateString(), $date));
+
+      $sumCharges = $query->sum('montant');
+
+    return $sumCharges;
     }
 
     public function responsable($charges){
@@ -53,4 +77,5 @@ class GetChargesBy
       }
     return $charges;
     }
+
 }

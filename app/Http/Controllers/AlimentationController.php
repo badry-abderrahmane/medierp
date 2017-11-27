@@ -49,9 +49,9 @@ class AlimentationController extends Controller
      * @param  \App\Alimentation  $alimentation
      * @return \Illuminate\Http\Response
      */
-    public function show(Alimentation $alimentation)
+    public function show($id)
     {
-        $alimentation = Alimentation::findOrfail($alimentation)->first();
+        $alimentation = Alimentation::findOrfail($id);
         $alimentation->responsable;
         return Response::json($alimentation, 200);
     }
@@ -74,9 +74,9 @@ class AlimentationController extends Controller
      * @param  \App\Alimentation  $alimentation
      * @return \Illuminate\Http\Response
      */
-    public function update(AlimentationRequest $request, Alimentation $alimentation)
+    public function update(AlimentationRequest $request, $id)
     {
-        $alimentation = Alimentation::findOrfail($alimentation)->first();
+        $alimentation = Alimentation::findOrfail($id);
         $alimentation->update($request->toArray());
         return Response::json(['message' => 'Alimentation bien mise à jour'], 200);
     }

@@ -56,7 +56,7 @@ export default {
   methods:{
     onSubmit(){
       this.charges = '';
-      this.form.post('/invo')
+      this.form.post('/inventaire/charges')
         .then(data => {
           console.log(data);
           this.charges = data;

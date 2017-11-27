@@ -1,5 +1,6 @@
 <template lang="html">
   <div>
+    <div class="pageloader is-active" v-show="isLoading"></div>
     <global-pagetitle :color="this.$root.color" title="Combiné caisses" subtitle="Rapports et exportations" icon="sliders"></global-pagetitle>
     <div class="container">
       <div class="columns">
@@ -7,14 +8,22 @@
           <part-panel>
             <div slot="heading">Recherche et classification</div>
             <div slot="body">
-              <!-- <form v-on:submit.prevent="onSubmit">
+              <form v-on:submit.prevent="onSubmit">
                   <part-forms-select-full v-model="form" :list="$root.months" name="date" label="Mois" help=""></part-forms-select-full>
-                  <part-forms-select-full v-model="form" :list="$root.responsables" name="responsable_id" label="Responsable" help=""></part-forms-select-full>
+                  <part-forms-select-full v-model="form" :list="$root.typecharges" name="typecharge_id" label="Type" help=""></part-forms-select-full>
+                  <div class="column">
+                    <label class="label">Combiner avec :</label>
+                    <div class="select is-primary">
+                      <select disabled>
+                        <option selected >Alimentations</option>
+                      </select>
+                    </div>
+                  </div>
                   <br>
                   <div class="column is-11">
-                      <button type="submit" class="button is-primary is-fullwidth"><i class="fa fa-search"></i>&nbsp;&nbsp;Recherche</button>
+                      <button type="submit" class="button is-primary is-fullwidth"><i class="fa fa-compress"></i>&nbsp;&nbsp;Combiner</button>
                   </div>
-              </form> -->
+              </form>
               <hr>
               <center>
                 <!-- <p class="title is-6">Nombre totale des alimentations :</p>
@@ -36,7 +45,12 @@ import { Form } from './../../../api/formNoReset.js';
 export default {
   data(){
     return{
-
+      caisse:'',
+      isLoading:false,
+      form: new Form ({
+        date:'',
+        typecharge_id:'',
+      })
     }
   },
   created(){
@@ -44,10 +58,19 @@ export default {
   },
   methods:{
     onSubmit(){
-
+      this.isLoading = true;
+      this.charges = '';
+      this.form.post('/combine/caisse')
+        .then(data => {
+          console.log(data);
+          this.caisse = data;
+          this.$router.push({ path: `/combine/caisse/list` });
+          this.isLoading = false;
+        })
+        .catch(errors =>{
+          console.log(errors);
+        });
     },
-
-
   }
 }
 </script>
