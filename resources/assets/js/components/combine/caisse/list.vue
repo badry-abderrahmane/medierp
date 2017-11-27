@@ -44,6 +44,11 @@ export default {
 
   mounted(){
     Event.$emit('init-datatable', 'tableAdd');
+  },
+  created(){
+    if (!this.$parent.caisse) {
+      this.$router.push({ path: `/combine/caisse` });
+    }
   }
 }
 </script>

@@ -49,9 +49,9 @@ class EncaissementController extends Controller
      * @param  \App\Encaissement  $encaissement
      * @return \Illuminate\Http\Response
      */
-    public function show(Encaissement $encaissement)
+    public function show($id)
     {
-        $encaissement = Encaissement::findOrfail($encaissement)->first();
+        $encaissement = Encaissement::findOrfail($id);
         $encaissement->marche;
         return Response::json($encaissement, 200);
     }
@@ -74,9 +74,9 @@ class EncaissementController extends Controller
      * @param  \App\Encaissement  $encaissement
      * @return \Illuminate\Http\Response
      */
-    public function update(EncaissementRequest $request, Encaissement $encaissement)
+    public function update(EncaissementRequest $request, $id)
     {
-        $encaissement = Encaissement::findOrfail($encaissement)->first();
+        $encaissement = Encaissement::findOrfail($id);
         $encaissement->update($request->toArray());
         return Response::json(['message' => 'Encaissement bien mis à jour'], 200);
     }

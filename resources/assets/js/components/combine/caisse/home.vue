@@ -10,7 +10,15 @@
             <div slot="body">
               <form v-on:submit.prevent="onSubmit">
                   <part-forms-select-full v-model="form" :list="$root.months" name="date" label="Mois" help=""></part-forms-select-full>
-                  <part-forms-select-full v-model="form" :list="$root.typecharges" name="typecharge_id" label="Type" help=""></part-forms-select-full>
+                  <!-- <part-forms-select-full v-model="form" :list="$root.typecharges" name="typecharge_id" label="Type" help=""></part-forms-select-full> -->
+                  <div class="column">
+                    <label class="label">Type :</label>
+                    <div class="select is-primary">
+                      <select disabled v-model="form.typecharge_id">
+                        <option value="1">Principale</option>
+                      </select>
+                    </div>
+                  </div>
                   <div class="column">
                     <label class="label">Combiner avec :</label>
                     <div class="select is-primary">
@@ -49,12 +57,13 @@ export default {
       isLoading:false,
       form: new Form ({
         date:'',
-        typecharge_id:'',
+        typecharge_id:'1',
       })
     }
   },
   created(){
-
+    var date = new Date();
+    this.form.date = date.getMonth()+1;
   },
   methods:{
     onSubmit(){

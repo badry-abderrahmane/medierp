@@ -56725,7 +56725,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -56779,6 +56779,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -56788,11 +56796,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       isLoading: false,
       form: new __WEBPACK_IMPORTED_MODULE_0__api_formNoReset_js__["a" /* Form */]({
         date: '',
-        typecharge_id: ''
+        typecharge_id: '1'
       })
     };
   },
-  created: function created() {},
+  created: function created() {
+    var date = new Date();
+    this.form.date = date.getMonth() + 1;
+  },
 
   methods: {
     onSubmit: function onSubmit() {
@@ -56889,21 +56900,53 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _c("part-forms-select-full", {
-                          attrs: {
-                            list: _vm.$root.typecharges,
-                            name: "typecharge_id",
-                            label: "Type",
-                            help: ""
-                          },
-                          model: {
-                            value: _vm.form,
-                            callback: function($$v) {
-                              _vm.form = $$v
-                            },
-                            expression: "form"
-                          }
-                        }),
+                        _c("div", { staticClass: "column" }, [
+                          _c("label", { staticClass: "label" }, [
+                            _vm._v("Type :")
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "select is-primary" }, [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.typecharge_id,
+                                    expression: "form.typecharge_id"
+                                  }
+                                ],
+                                attrs: { disabled: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.form,
+                                      "typecharge_id",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", { attrs: { value: "1" } }, [
+                                  _vm._v("Principale")
+                                ])
+                              ]
+                            )
+                          ])
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "column" }, [
                           _c("label", { staticClass: "label" }, [
@@ -57308,7 +57351,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -57364,6 +57407,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     Event.$emit('init-datatable', 'tableAdd');
+  },
+  created: function created() {
+    if (!this.$parent.caisse) {
+      this.$router.push({ path: '/combine/caisse' });
+    }
   }
 });
 
