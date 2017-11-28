@@ -9,8 +9,33 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import VueRouter from 'vue-router';
+import Vuex from 'vuex'
 
+Vue.use(Vuex)
 Vue.use(VueRouter);
+
+const store = new Vuex.Store({
+  state: {
+    pagetitle: 'Blank',
+    banqueCustom:[],
+  },
+  getters: {
+    pagetitle: state => {
+      return state.pagetitle
+    },
+    banqueCustom: state => {
+      return state.banqueCustom
+    }
+  },
+  mutations: {
+    pagetitle (state,title) {
+      state.pagetitle = title;
+    },
+    banqueCustom (state,banque) {
+      state.banqueCustom = banque;
+    }
+  }
+})
 
 require('./global');
 require('./parts');
@@ -23,6 +48,7 @@ import { routes } from './router.js';
 const router = new VueRouter({ routes });
 
 const app = new Vue({
+  store,
   router,
   data(){
     return {

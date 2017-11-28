@@ -1,20 +1,17 @@
 <template lang="html">
   <div>
+    <!-- <div class="pageloader is-active" v-show="isLoading"></div> -->
     <global-pagetitle :color="this.$root.color" title="Combiné banques" subtitle="Rapports et exportations" icon="sliders"></global-pagetitle>
     <div class="container">
       <div class="columns">
-        <div class="column is-3"><br><br>
+        <div class="column is-one-quarter"><br><br>
           <part-panel>
-            <div slot="heading">Recherche et classification</div>
+            <div slot="heading">Liens utiles</div>
             <div slot="body">
-              <!-- <form v-on:submit.prevent="onSubmit">
-                  <part-forms-select-full v-model="form" :list="$root.months" name="date" label="Mois" help=""></part-forms-select-full>
-                  <part-forms-select-full v-model="form" :list="$root.responsables" name="responsable_id" label="Responsable" help=""></part-forms-select-full>
-                  <br>
-                  <div class="column is-11">
-                      <button type="submit" class="button is-primary is-fullwidth"><i class="fa fa-search"></i>&nbsp;&nbsp;Recherche</button>
-                  </div>
-              </form> -->
+              <center>
+                <a class="button is-text" @click="$router.push({ path: `/combine/banque/filter` })"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Revenir au filter</a>
+                <a class="button is-text" @click="$router.push({ path: `/combine/banque/filter` })"><i class="fa fa-sliders"></i>&nbsp;&nbsp;Combiné caisse</a>
+              </center>
               <hr>
               <center>
                 <!-- <p class="title is-6">Nombre totale des alimentations :</p>
@@ -32,7 +29,7 @@
 </template>
 
 <script>
-import { Form } from './../../../api/formNoReset.js';
+
 export default {
   data(){
     return{
@@ -43,10 +40,6 @@ export default {
 
   },
   methods:{
-    onSubmit(){
-
-    },
-
 
   }
 }

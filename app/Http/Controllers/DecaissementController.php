@@ -50,9 +50,9 @@ class DecaissementController extends Controller
      * @param  \App\Decaissement  $decaissement
      * @return \Illuminate\Http\Response
      */
-    public function show(Decaissement $decaissement)
+    public function show($id)
     {
-        $decaissement = Decaissement::findOrfail($decaissement)->first();
+        $decaissement = Decaissement::findOrfail($id);
         $decaissement->operation;
         $decaissement->marche;
         return Response::json($decaissement, 200);
@@ -76,9 +76,9 @@ class DecaissementController extends Controller
      * @param  \App\Decaissement  $decaissement
      * @return \Illuminate\Http\Response
      */
-    public function update(DecaissementRequest $request, Decaissement $decaissement)
+    public function update(DecaissementRequest $request, $id)
     {
-        $decaissement = Decaissement::findOrfail($decaissement)->first();
+        $decaissement = Decaissement::findOrfail($id);
         $decaissement->update($request->toArray());
         return Response::json(['message' => 'Decaissement bien mis à jour'], 200);
     }

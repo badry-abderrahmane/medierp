@@ -64,6 +64,7 @@ export default {
   created(){
     var date = new Date();
     this.form.date = date.getMonth()+1;
+    this.onSubmit();
   },
   methods:{
     onSubmit(){

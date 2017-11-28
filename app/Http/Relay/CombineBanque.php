@@ -8,23 +8,44 @@ use Illuminate\Support\Facades\DB;
 
 class CombineBanque
 {
-    public function banque($instances)
+    public function banque($instances,$societe_id)
     {
-      $getChargesBy  = new GetChargesBy;
-      $getAlimentationsBy  = new GetAlimentationsBy;
-      $charges       = $getChargesBy->prepareQuery($instances);
-      $alimentations = $getAlimentationsBy->prepareQuery($instances);
-      $values = $this->combine($charges,$alimentations);
-
+      $getDecaissementsBy  = new GetDecaissementsBy;
+      $getEncaissementsBy  = new GetEncaissementsBy;
+      $decaissements       = $getDecaissementsBy->prepareQuery($instances);
+      $encaissements       = $getEncaissementsBy->prepareQuery($instances);
+      $values              = $this->combine($decaissements,$encaissements);
+      $values              = $this->solde($instances,$societe_id,$values);
      return $values;
     }
 
-    public function combine($charges, $alimentations)
+    public function combine($decaissements,$encaissements)
     {
-      $values = $charges->merge($alimentations);
+      $values = $decaissements->merge($encaissements);
 
     return $values;
     }
 
+    public function solde($instances,$societe_id,$values)
+  	{
+      $societe = \App\Societe::findOrFail($societe_id);
+      $getDecaissementsBy  = new GetDecaissementsBy;
+      $getEncaissementsBy  = new GetEncaissementsBy;
+      foreach ($values as $key => $value) {
+        $xencaissements      = $getEncaissementsBy->historySumMontant($instances,$value->date);
+        $xdecaissements      = $getDecaissementsBy->historySumMontant($instances,$value->date);
+        if (property_exists($value,"operation_id")) {
+          $solde  = $societe->solde+$xencaissements-$xdecaissements-$value->montant;
+          $value->solde  = number_format($solde, 2, '.', ',');
+        }else{
+          $solde  = $societe->solde+$xencaissements-$xdecaissements+$value->montant;
+          $value->solde  = number_format($solde, 2, '.', ',');
+        }
+
+          $value->montant  = number_format($value->montant, 2, '.', ',');
+      }
+
+    return $values;
+  	}
 
 }

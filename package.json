@@ -24,6 +24,7 @@
         "vue-events": "^3.1.0",
         "vue-flatpickr-component": "^4.0.0",
         "vue-router": "^3.0.1",
-        "vue-select": "github:sagalbot/vue-select"
+        "vue-select": "github:sagalbot/vue-select",
+        "vuex": "^3.0.1"
     }
 }

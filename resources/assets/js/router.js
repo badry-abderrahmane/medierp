@@ -129,7 +129,8 @@ module.exports = {
       },
       { path: '/combine/banque', component: require('./components/combine/banque/home.vue'),
         children: [
-          { path: 'list', component: require('./components/combine/banque/list.vue') },
+          { path: 'filter', component: require('./components/combine/banque/filter.vue') },
+          { path: 'list/:date/:societe', component: require('./components/combine/banque/list.vue') },
         ]
       },
   ]
