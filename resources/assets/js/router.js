@@ -124,7 +124,8 @@ module.exports = {
       },
       { path: '/combine/caisse', component: require('./components/combine/caisse/home.vue'),
         children: [
-          { path: 'list', component: require('./components/combine/caisse/list.vue') },
+          { path: 'filter', component: require('./components/combine/caisse/filter.vue') },
+          { path: 'list/:date/:typecharge', component: require('./components/combine/caisse/list.vue') },
         ]
       },
       { path: '/combine/banque', component: require('./components/combine/banque/home.vue'),

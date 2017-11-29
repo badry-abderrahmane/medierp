@@ -1,5 +1,6 @@
 <template lang="html">
   <div>
+    <div class="pageloader is-active" v-show="isLoading"></div>
     <part-panel>
       <div slot="heading">Inventaire des charges</div>
       <div slot="body">
@@ -16,7 +17,7 @@
             <!-- <th>Société</th> -->
             <th width="10%" style="text-align: center;">Action</th>
           </tr>
-          <tr slot="tbody" v-for="item in $parent.caisse">
+          <tr slot="tbody" v-for="item in caisse">
             <!-- <td>{{ charge.id }}</td> -->
             <td>{{ item.date }}</td>
             <td>{{ item.designation }}</td>
@@ -40,16 +41,35 @@
 </template>
 
 <script>
+import { Form } from './../../../api/formNoReset.js';
 export default {
-
-  mounted(){
-    Event.$emit('init-datatable', 'tableAdd');
+  data(){
+    return {
+      isLoading: false,
+      caisse: [],
+      form: new Form ({
+        date:'',
+        typecharge_id:'',
+      })
+    }
   },
   created(){
-    if (!this.$parent.caisse) {
-      this.$router.push({ path: `/combine/caisse` });
-    }
-  }
+    this.form.date          = this.$route.params.date;
+    this.form.typecharge_id = this.$route.params.typecharge;
+    this.isLoading          = true;
+    this.form.post('/combine/caisse')
+        .then(data => {
+          this.caisse = data;
+          Vue.nextTick(function () {
+            Event.$emit('init-datatable', 'tableAdd');
+          })
+          this.isLoading = false;
+        })
+        .catch(errors =>{
+          console.log(errors);
+          this.isLoading = false;
+        });
+  },
 }
 </script>
 

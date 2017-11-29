@@ -197,7 +197,7 @@
               </p>
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item" @click="$router.push({ path: `/combine/caisse` })">
+            <a class="navbar-item" @click="$router.push({ path: `/combine/caisse/filter` })">
               <p>
                 <strong>Combiné caisses</strong>
                 <br>
@@ -205,7 +205,7 @@
               </p>
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item" @click="$router.push({ path: `/combine/banque` })">
+            <a class="navbar-item" @click="$router.push({ path: `/combine/banque/filter` })">
               <p>
                 <strong>Combiné banque</strong>
                 <br>

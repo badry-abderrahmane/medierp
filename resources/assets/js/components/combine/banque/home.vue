@@ -1,6 +1,5 @@
 <template lang="html">
   <div>
-    <!-- <div class="pageloader is-active" v-show="isLoading"></div> -->
     <global-pagetitle :color="this.$root.color" title="Combiné banques" subtitle="Rapports et exportations" icon="sliders"></global-pagetitle>
     <div class="container">
       <div class="columns">
@@ -9,14 +8,19 @@
             <div slot="heading">Liens utiles</div>
             <div slot="body">
               <center>
-                <a class="button is-text" @click="$router.push({ path: `/combine/banque/filter` })"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Revenir au filter</a>
-                <a class="button is-text" @click="$router.push({ path: `/combine/banque/filter` })"><i class="fa fa-sliders"></i>&nbsp;&nbsp;Combiné caisse</a>
+                <a v-if="$route.path != '/combine/banque/filter'" class="button is-text" @click="$router.push({ path: `/combine/banque/filter` })"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;Revenir au filter</a>
+                <a class="button is-text" @click="$router.push({ path: `/combine/caisse/filter` })"><i class="fa fa-sliders"></i>&nbsp;&nbsp;Combiné caisse</a>
               </center>
               <hr>
-              <center>
-                <!-- <p class="title is-6">Nombre totale des alimentations :</p>
-                <span class="tag is-primary is-medium">{{ totalAlimentations }}</span> -->
-              </center>
+              <div v-if="societe">
+                <center>
+                  <p class="title is-6">Société :</p>
+                  <span class="tag is-primary is-medium">{{ societe.name }}</span>
+                  <br><br>
+                  <p class="title is-6">Solde de départ :</p>
+                  <span class="tag is-primary is-medium">{{ societe.solde }}</span>
+                </center>
+              </div>
             </div>
           </part-panel>
         </div>
@@ -32,15 +36,26 @@
 
 export default {
   data(){
-    return{
-
+    return {
+      societe: '',
     }
   },
-  created(){
-
+  watch:{
+    $route:function(newVal){
+      if (this.$route.params.societe) {
+        this.getSociete(this.$route.params.societe);
+      }else{
+        this.societe = '';
+      }
+    }
   },
   methods:{
-
+    getSociete(societe_id){
+      axios.get('/societes/'+societe_id)
+        .then(response => {
+          this.societe = response.data;
+      });
+    }
   }
 }
 </script>
