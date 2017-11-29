@@ -9,6 +9,10 @@
 @import "~bulma/bulma.sass";
 @import "~bulma-pageloader/pageloader.sass";
 
+.footer{
+  padding: 10px !important;
+  margin-top: 20px !important;
+}
 .site {
   display: flex;
   min-height: 100vh;

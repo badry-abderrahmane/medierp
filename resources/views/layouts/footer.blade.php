@@ -2,7 +2,7 @@
   <div class="container">
     <div class="content has-text-centered">
       <p>
-        <strong>APP NAME</strong> by <a href="http://jgthms.com">BADRY ABDERRAHMANE</a>. The source code is licensed.
+        <strong>MediERP V2.0</strong> par <a href="#">Medirelay Technologies Group</a>. Le code source est sous licence tous droits.
       </p>
     </div>
   </div>

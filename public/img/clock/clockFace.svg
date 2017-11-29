@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" version="1.1" x="0px" y="0px" width="234px" height="234px" viewBox="-8.5 -8.5 238 238" overflow="visible" enable-background="new -8.5 -8.5 235 235" xml:space="preserve"><script xmlns="" id="tinyhippos-injected"/>
+<defs>
+	<filter id="f1" x="-1" y="-1" width="3" height="3">
+      <feOffset result="offOut" in="SourceGraphic" dx="0" dy="8"/>
+      <feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.5 0 0 0 0 0 0.5 0 0 0 0 0 0.5 0 0 0 0 0 .5 0"/>
+      <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="2"/>
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+    </filter>
+</defs>
+<path fill="#F5F5F5" d="M217,108.5c0,59.926-48.573,108.5-108.5,108.5S0,168.426,0,108.5C0,48.572,48.573,0,108.5,0  S217,48.572,217,108.5z" filter="url(#f1)"/>
+<path fill="#00d1b2" d="M203.5,108.5c0,52.464-42.535,95-95,95s-95-42.536-95-95c0-52.466,42.535-95,95-95S203.5,56.034,203.5,108.5  z"/>
+<rect x="107" y="22.5" fill="#FFFFFF" width="3" height="20"/>
+<rect x="107" y="173.5" fill="#FFFFFF" width="3" height="20"/>
+<rect x="23" y="107" fill="#FFFFFF" width="20" height="3"/>
+<rect x="174" y="107" fill="#FFFFFF" width="20" height="3"/>
+<rect x="33.785" y="67.25" transform="matrix(0.866 0.5 -0.5 0.866 39.0718 -10.3157)" fill="#FFFFFF" width="10" height="1"/>
+<rect x="173.216" y="147.75" transform="matrix(0.866 0.5 -0.5 0.866 98.0027 -69.2465)" fill="#FFFFFF" width="10" height="1"/>
+<rect x="63.25" y="38.285" transform="matrix(0.5 0.866 -0.866 0.5 67.7135 -39.7137)" fill="#FFFFFF" width="10" height="0.999"/>
+<rect x="143.75" y="177.715" transform="matrix(0.5 0.866 -0.866 0.5 228.718 -39.7122)" fill="#FFFFFF" width="10" height="0.999"/>
+<rect x="177.715" y="63.25" transform="matrix(0.4999 0.8661 -0.8661 0.4999 148.2311 -120.2164)" fill="#FFFFFF" width="1" height="10"/>
+<rect x="38.285" y="143.75" transform="matrix(0.4999 0.8661 -0.8661 0.4999 148.2236 40.7966)" fill="#FFFFFF" width="1" height="10.001"/>
+<rect x="148.25" y="33.785" transform="matrix(0.8658 0.5003 -0.5003 0.8658 39.364 -69.2221)" fill="#FFFFFF" width="0.999" height="10"/>
+<rect x="67.75" y="173.215" transform="matrix(0.8658 0.5003 -0.5003 0.8658 98.326 -10.2368)" fill="#FFFFFF" width="0.999" height="10.001"/>
+</svg>

@@ -2,7 +2,7 @@
   <nav :class="'navbar is-'+$parent.color">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+          <img src="/img/logo_nav.png" alt="MediERP v2.0: Finance et comptabilité" width="143" height="27">
       </a>
       <div class="navbar-burger burger" data-target="navMenuColorprimary-example">
         <span></span>
@@ -17,7 +17,7 @@
           Tableau de bord
         </a>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" @click="$router.push({ path: `/caisse` })">
+          <a class="navbar-link">
             Caisses
           </a>
           <div class="navbar-dropdown">
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" @click="$router.push({ path: `/banque` })">
+          <a class="navbar-link">
             Banques
           </a>
           <div class="navbar-dropdown">
@@ -93,7 +93,7 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" @click="$router.push({ path: `/entite` })">
+          <a class="navbar-link">
             Entités
           </a>
           <div class="navbar-dropdown">
@@ -131,7 +131,7 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" @click="$router.push({ path: `/inventaire` })">
+          <a class="navbar-link">
             Inventaires
           </a>
           <div class="navbar-dropdown">
@@ -177,7 +177,7 @@
           </div>
         </div>
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" @click="$router.push({ path: `/combine` })">
+          <a class="navbar-link">
             Combinés
           </a>
           <div class="navbar-dropdown">
@@ -214,6 +214,44 @@
             </a>
           </div>
         </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Rapports
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item " @click="$router.push({ path: `/rapport` })">
+              <p>
+                <strong>Vue d'ensemble</strong>
+                <br>
+                <small>Exportation et Backups.</small>
+              </p>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" @click="$router.push({ path: `/rapport/societe` })">
+              <p>
+                <strong>Rapport sociétés</strong>
+                <br>
+                <small>Exportation et Backups.</small>
+              </p>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" @click="$router.push({ path: `/combine/marche` })">
+              <p>
+                <strong>Rapport marchés</strong>
+                <br>
+                <small>Exportation et Backups.</small>
+              </p>
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" @click="$router.push({ path: `/combine/responsable` })">
+              <p>
+                <strong>Rapport Responsables</strong>
+                <br>
+                <small>Exportation et Backups.</small>
+              </p>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="navbar-end">
@@ -243,7 +281,7 @@
               </p>
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item" @click="$router.push({ path: `/entite/responsable` })">
+            <a class="navbar-item" href="/logout">
               <p>
                 <i class="fa fa-sign-out"></i>&nbsp;&nbsp;
                 <strong>Se déconnecter</strong>

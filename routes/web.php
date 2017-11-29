@@ -121,3 +121,8 @@ Route::get('totale/societes', function(){
   $total = \App\Societe::count();
   return $total;
 });
+
+Auth::routes();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('/home', 'HomeController@index')->name('home');

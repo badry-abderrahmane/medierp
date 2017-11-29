@@ -11610,6 +11610,11 @@ label.panel-block:hover {
   }
 }
 
+.footer {
+  padding: 10px !important;
+  margin-top: 20px !important;
+}
+
 .site {
   display: -webkit-box;
   display: -ms-flexbox;

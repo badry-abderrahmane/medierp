@@ -40,7 +40,8 @@ const store = new Vuex.Store({
 require('./global');
 require('./parts');
 require('./plugins');
-
+require('./charts');
+require('./widgets');
 
 window.Event = new Vue();
 
